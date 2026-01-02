@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Digest - January 2026</title>
+    <title>Daily Tech Digest - Sovranità Digitale Europea</title>
     <style>
         * {
             margin: 0;
@@ -24,7 +24,7 @@
             max-width: 800px;
             margin: 0 auto;
             background-color: #ffffff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         header {
@@ -35,13 +35,13 @@
         }
         
         header h1 {
-            font-size: 2.2em;
+            font-size: 2em;
             margin-bottom: 10px;
             font-weight: 700;
         }
         
         header .date {
-            font-size: 1em;
+            font-size: 0.9em;
             opacity: 0.9;
             font-weight: 300;
         }
@@ -74,12 +74,19 @@
             border-bottom: none;
         }
         
-        .section h2 {
-            color: #2c3e50;
+        .section-header {
+            color: #764ba2;
             font-size: 1.6em;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             padding-bottom: 10px;
             border-bottom: 2px solid #667eea;
+        }
+        
+        .section-description {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 25px;
+            font-size: 0.95em;
         }
         
         .article-card {
@@ -88,83 +95,63 @@
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
-            transition: box-shadow 0.3s ease, transform 0.2s ease;
+            transition: box-shadow 0.3s ease;
         }
         
         .article-card:hover {
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
         }
         
-        .article-card h3 {
-            font-size: 1.2em;
+        .article-card:last-child {
+            margin-bottom: 0;
+        }
+        
+        .article-title {
+            font-size: 1.3em;
             margin-bottom: 10px;
         }
         
-        .article-card h3 a {
-            color: #2c3e50;
+        .article-title a {
+            color: #667eea;
             text-decoration: none;
-            transition: color 0.2s ease;
+            font-weight: 600;
         }
         
-        .article-card h3 a:hover {
-            color: #667eea;
+        .article-title a:hover {
+            color: #764ba2;
+            text-decoration: underline;
         }
         
         .article-meta {
+            color: #888;
+            font-size: 0.85em;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 12px;
-            font-size: 0.85em;
         }
         
-        .source {
+        .source-badge {
             background-color: #667eea;
             color: white;
-            padding: 4px 10px;
+            padding: 3px 10px;
             border-radius: 12px;
-            font-size: 0.85em;
+            font-size: 0.8em;
             font-weight: 500;
         }
         
-        .read-time {
-            color: #999;
-        }
-        
         .article-summary {
-            color: #666;
+            color: #555;
             line-height: 1.7;
             font-size: 0.95em;
         }
         
         footer {
+            background-color: #f8f9fa;
+            padding: 20px 30px;
             text-align: center;
-            padding: 30px;
-            color: #999;
-            font-size: 0.9em;
-        }
-        
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            
-            header {
-                padding: 30px 20px;
-            }
-            
-            header h1 {
-                font-size: 1.8em;
-            }
-            
-            .highlights, .section {
-                padding: 20px;
-            }
-            
-            .article-card {
-                padding: 15px;
-            }
+            color: #888;
+            font-size: 0.85em;
         }
         
         @media print {
@@ -181,171 +168,85 @@
                 page-break-inside: avoid;
             }
         }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 25px 20px;
+            }
+            
+            header h1 {
+                font-size: 1.5em;
+            }
+            
+            .highlights, .section {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .section-header {
+                font-size: 1.3em;
+            }
+            
+            .article-title {
+                font-size: 1.1em;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Tech Daily Digest</h1>
-            <div class="date">January 2026 • Curated Insights</div>
+            <h1>Tech Digest: Sovranità Digitale Europea</h1>
+            <div class="date">Digest Quotidiano</div>
         </header>
         
         <div class="highlights">
-            <h2>Today's Highlights</h2>
+            <h2>📌 L'Analisi di Oggi</h2>
             <p>
-                The convergence of AI and automation reaches a pivotal moment as 2026 unfolds. Tesla's zero-intervention coast-to-coast drive and Neuralink's production-ready brain interfaces signal that autonomous systems are moving from experimental to operational. Meanwhile, the developer landscape undergoes radical transformation—non-technical builders ship production code through AI agents, consuming billions of tokens without reading a single line. The question is no longer whether AI will reshape industries, but rather who has the better AI: the attackers or defenders, the builders or the incumbents. As reasoning models dominate releases across major labs and agentic platforms proliferate, we're witnessing the infrastructure layer of the AI-native era taking shape—from biometric proof of personhood to atmospheric computing architectures that reimagine how cloud services interconnect.
+                Due facce della stessa medaglia emergono dal panorama tecnologico europeo: da un lato, la corsa verso l'indipendenza digitale del continente che cerca di colmare un gap dell'85% nella produzione tecnologica globale; dall'altro, l'infiltrazione silenziosa di tecnologie straniere nelle case europee attraverso canali insospettabili. Mentre l'Europa discute strategie per competere con USA e Cina in AI e robotica, la battaglia per la sovranità cognitiva si combatte già oggi nelle camerette dei bambini, dove giocattoli connessi veicolano narrative geopolitiche. Il paradosso è evidente: costruire un'industria tech europea mentre la prossima generazione cresce con dispositivi che plasmano la loro visione del mondo secondo agende esterne. La sfida non è solo economica o industriale, ma profondamente culturale ed educativa.
             </p>
         </div>
         
         <div class="section">
-            <h2>The Autonomous Revolution: From Roads to Minds</h2>
+            <h2 class="section-header">🇪🇺 La Battaglia per l'Autonomia Tecnologica Europea</h2>
+            <p class="section-description">Strategie e sfide per ridurre la dipendenza tecnologica da USA e Cina</p>
             
             <div class="article-card">
-                <h3><a href="https://www.teslarati.com/tesla-fsd-successfully-completes-full-coast-to-coast-drive-with-zero-interventions/?utm_source=tldrnewsletter" target="_blank">Tesla FSD Successfully Completes Full Coast-to-Coast Drive with Zero Interventions</a></h3>
+                <div class="article-title">
+                    <a href="https://www.youtube.com/watch?v=vY0yoi0Tk6I" target="_blank">L'85% della nostra tecnologia viene da FUORI [Emanuela Girardi]</a>
+                </div>
                 <div class="article-meta">
-                    <span class="source">TLDR Science & Futuristic Tech</span>
-                    <span class="read-time">2 min read</span>
+                    <span class="source-badge">Raffaele Gaito</span>
                 </div>
                 <div class="article-summary">
-                    A Tesla owner successfully drove coast-to-coast across the US on Full Self-Driving (FSD) Supervised with zero interventions during the trip. Their Model 3 completed the drive in 2 days and 20 hours, starting at the Tesla Diner in Los Angeles, CA, and ending in Myrtle Beach, SC. It was accomplished with Tesla FSD V14.2 on AI4 hardware. The milestone trip was widely lauded by members of the Tesla community.
-                </div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://links.tldrnewsletter.com/YZ7kYF" target="_blank">Neuralink Will Start High-Volume Production of Brain-Computer Interface Devices in 2026</a></h3>
-                <div class="article-meta">
-                    <span class="source">TLDR Science & Futuristic Tech</span>
-                    <span class="read-time">1 min read</span>
-                </div>
-                <div class="article-summary">
-                    Neuralink received FDA breakthrough device designation for its speech restoration in 2025. The company also launched clinical trials in the Middle East and the UK, and completed two surgeries in Canada. It upgraded its surgical robot to be able to insert an electrode thread every 1.5 seconds at insertion depths of over 50mm. Neuralink plans to move to an almost completely automated surgical procedure this year.
+                    In questa intervista esclusiva, Emanuela Girardi, presidente di ADRA e founder di Pop AI, spiega le strategie dell'Europa per raggiungere la sovranità tecnologica in ambiti come intelligenza artificiale, dati e robotica. Discute perché l'85% della tecnologia globale viene sviluppato altrove e le opportunità per competere con USA e Cina, con un'attenzione particolare alla Physical AI, che unisce robotica industriale e AI per creare campioni europei. Parla del divario educativo tra Francia e Italia, dell'importanza di far conoscere l'AI fin da giovane, e del ruolo di Pop AI nel rendere l'AI accessibile a tutti. L'intervista esplora anche la geopolitica dell'AI, le sfide per le alternative europee, la frammentazione del mercato, e la necessità di formare insegnanti e studenti per affrontare la rivoluzione tecnologica.
                 </div>
             </div>
         </div>
         
         <div class="section">
-            <h2>The No-Code Developer Revolution: AI as the New IDE</h2>
+            <h2 class="section-header">🧸 Sicurezza Cognitiva: Quando l'AI Entra nelle Camerette</h2>
+            <p class="section-description">I rischi invisibili dell'infiltrazione tecnologica attraverso dispositivi consumer</p>
             
             <div class="article-card">
-                <h3><a href="https://links.tldrnewsletter.com/pzNUXP" target="_blank">How I Code with Agents, Without Being 'Technical'</a></h3>
+                <div class="article-title">
+                    <a href="https://www.youtube.com/watch?v=9woEJXw_VXc" target="_blank">ORSACCHIOTTI AI che fanno Propaganda: la nuova strada della Sicurezza Cognitiva #1508</a>
+                </div>
                 <div class="article-meta">
-                    <span class="source">TLDR Programming & Data Science</span>
-                    <span class="read-time">18 min read</span>
+                    <span class="source-badge">Ciao Internet - Matteo Flora</span>
                 </div>
                 <div class="article-summary">
-                    Ben Tossell, who works at Factory, a company developing a frontier software development agent, has spent 3 billion tokens in four months through an agent without writing any code. None of the code was read, but Tossell read the agent output religiously, which led to him picking up a ton of knowledge around how code works, how projects work, where things fail, and where they succeed. Tossell has shipped several projects using his method over the past few months, including a personal site, a 'wrapped' product for Factory, several custom CLIs, and an AI-directed video demo system.
-                </div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://www.nerd-lang.org/about?utm_source=tldrnewsletter" target="_blank">NERD: A Programming Language Optimized for Large Language Models</a></h3>
-                <div class="article-meta">
-                    <span class="source">TLDR Quick Links</span>
-                    <span class="read-time">3 min read</span>
-                </div>
-                <div class="article-summary">
-                    NERD (No Effort Required, Done) is a programming language optimized for large language models.
-                </div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://github.com/max-sixty/worktrunk?utm_source=tldrnewsletter" target="_blank">Worktrunk: Git Worktree Management for AI Agents</a></h3>
-                <div class="article-meta">
-                    <span class="source">TLDR Quick Links</span>
-                </div>
-                <div class="article-summary">
-                    Worktrunk is a CLI for git worktree management designed to run AI agents in parallel.
-                </div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>2026 Forecast: Reasoning Models, Agentic Security & the AI Infrastructure Shift</h2>
-            
-            <div class="article-card">
-                <h3><a href="https://danielmiessler.com/blog/cybersecurity-ai-changes-2026?utm_source=tldrnewsletter" target="_blank">Here Are the Major Changes I See Coming for Cybersecurity in 2026</a></h3>
-                <div class="article-meta">
-                    <span class="source">TLDR Programming & Data Science</span>
-                    <span class="read-time">10 min read</span>
-                </div>
-                <div class="article-summary">
-                    The primary security question for companies will be how good their attackers' AI is versus their own AI. There will be increased spending on agentic security platforms and significantly more in-house building of security tools. Asset management will become possible for the first time because of agents. Most security platforms will eventually be replaceable with AI prompts.
-                </div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://www.philschmid.de/2026-predictions?utm_source=tldrnewsletter" target="_blank">8 Predictions for 2026: What Comes Next in AI?</a></h3>
-                <div class="article-meta">
-                    <span class="source">TLDR Miscellaneous</span>
-                    <span class="read-time">3 min read</span>
-                </div>
-                <div class="article-summary">
-                    2026 will be the year when generative UI takes off, the Smart Home finally fulfills its promise, and biometric proof of personhood becomes the new social login. Engineers looking to separate themselves from the crowd need to build and learn, as deep technical intuition is what will distinguish them from others. Agents will continue to be the main headline. This year, they will start interacting in our daily lives to anticipate needs.
-                </div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://www.understandingai.org/p/17-predictions-for-ai-in-2026?utm_source=tldrnewsletter" target="_blank">17 Predictions for AI in 2026</a></h3>
-                <div class="article-meta">
-                    <span class="source">TLDR Quick Links</span>
-                    <span class="read-time">23 min read</span>
-                </div>
-                <div class="article-summary">
-                    Models will continue to improve their capabilities, but it will take a while for the full impact to be felt across the economy.
-                </div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://www.pfrazee.com/blog/atmospheric-computing?utm_source=tldrnewsletter" target="_blank">Atmospheric Computing</a></h3>
-                <div class="article-meta">
-                    <span class="source">TLDR Quick Links</span>
-                    <span class="read-time">12 min read</span>
-                </div>
-                <div class="article-summary">
-                    Atmospheric computing connects cloud services together, allowing users to store and run their own programs.
-                </div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>Reflections & Retrospectives: The Year AI Reasoning Arrived</h2>
-            
-            <div class="article-card">
-                <h3><a href="https://simonwillison.net/2025/Dec/31/the-year-in-llms/#atom-everything?utm_source=tldrnewsletter" target="_blank">2025: The Year in LLMs</a></h3>
-                <div class="article-meta">
-                    <span class="source">TLDR Quick Links</span>
-                    <span class="read-time">42 min read</span>
-                </div>
-                <div class="article-summary">
-                    Reasoning was a significant feature of many models from nearly every major AI lab in 2025.
-                </div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://samuelalbanie.substack.com/p/reflections-on-2025?utm_source=tldrnewsletter" target="_blank">Reflections on 2025</a></h3>
-                <div class="article-meta">
-                    <span class="source">TLDR Miscellaneous</span>
-                    <span class="read-time">29 min read</span>
-                </div>
-                <div class="article-summary">
-                    AI tends to improve at the same pace that AI researchers get access to faster hardware. The hardware scheduled to come online in the next few years makes current hardware look like pocket calculators. If previous observations hold true, then we are not approaching a plateau, the field is just getting started.
-                </div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://inclouds.space/on-the-software-job-climate?utm_source=tldrnewsletter" target="_blank">On the Software Job Climate</a></h3>
-                <div class="article-meta">
-                    <span class="source">TLDR Quick Links</span>
-                    <span class="read-time">3 min read</span>
-                </div>
-                <div class="article-summary">
-                    There is a lot less money going towards hiring, but that could change if the tax code gets rolled back, interest rates fall, and data centers stop being the rage.
+                    Un orsacchiotto AI distribuisce propaganda cinese nelle camerette d'Europa, giocattoli che dichiarano in automatico che Taiwan è "parte della Cina" o che si pongono il problema di un Winnie Pooh "irrispettoso". Se i bambini crescono tra peluche che raccontano favole e diffondono idee politiche, il rischio è un'infiltrazione culturale senza controllo. Pensavi che i pericoli fossero solo su TikTok? E se la vera minaccia fosse sotto il cuscino? Hai già notato giocattoli "troppo intelligenti" tra i regali dei tuoi figli?
                 </div>
             </div>
         </div>
         
         <footer>
-            <p>Daily Digest • Curated Technology Insights • January 2026</p>
+            <p>Daily Tech Digest - Analisi e approfondimenti sul mondo della tecnologia</p>
         </footer>
     </div>
 </body>
