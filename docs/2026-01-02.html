@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Tech Digest - Sovranità Digitale Europea</title>
+    <title>Daily Digest - Tecnologia e Sovranità Digitale</title>
     <style>
         * {
             margin: 0;
@@ -31,32 +31,37 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 40px 30px;
-            border-bottom: 4px solid #5568d3;
+            border-bottom: 4px solid #5a67d8;
         }
         
         header h1 {
-            font-size: 2em;
+            font-size: 2.2em;
             margin-bottom: 10px;
             font-weight: 700;
         }
         
         header .date {
-            font-size: 0.9em;
-            opacity: 0.9;
+            font-size: 0.95em;
+            opacity: 0.95;
             font-weight: 300;
+        }
+        
+        .content {
+            padding: 30px;
         }
         
         .highlights {
             background-color: #f8f9fa;
             border-left: 4px solid #667eea;
-            padding: 30px;
-            margin: 30px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-radius: 4px;
         }
         
         .highlights h2 {
             color: #667eea;
-            font-size: 1.5em;
             margin-bottom: 15px;
+            font-size: 1.5em;
         }
         
         .highlights p {
@@ -65,93 +70,107 @@
             line-height: 1.8;
         }
         
-        .section {
-            padding: 30px;
-            border-bottom: 1px solid #e0e0e0;
+        .cluster {
+            margin-bottom: 45px;
         }
         
-        .section:last-child {
-            border-bottom: none;
-        }
-        
-        .section-header {
-            color: #764ba2;
-            font-size: 1.6em;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
-        }
-        
-        .section-description {
-            color: #666;
-            font-style: italic;
+        .cluster-header {
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 12px;
             margin-bottom: 25px;
-            font-size: 0.95em;
         }
         
-        .article-card {
-            background-color: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: box-shadow 0.3s ease;
-        }
-        
-        .article-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .article-card:last-child {
-            margin-bottom: 0;
-        }
-        
-        .article-title {
-            font-size: 1.3em;
-            margin-bottom: 10px;
-        }
-        
-        .article-title a {
-            color: #667eea;
-            text-decoration: none;
+        .cluster-header h2 {
+            color: #2d3748;
+            font-size: 1.6em;
             font-weight: 600;
         }
         
-        .article-title a:hover {
-            color: #764ba2;
-            text-decoration: underline;
+        .article-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .article-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.3em;
+            line-height: 1.4;
+        }
+        
+        .article-card h3 a {
+            color: #2d3748;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .article-card h3 a:hover {
+            color: #667eea;
         }
         
         .article-meta {
-            color: #888;
-            font-size: 0.85em;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .source-badge {
-            background-color: #667eea;
-            color: white;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8em;
+            color: #718096;
+            font-size: 0.9em;
+            margin-bottom: 15px;
             font-weight: 500;
         }
         
         .article-summary {
-            color: #555;
+            color: #4a5568;
             line-height: 1.7;
-            font-size: 0.95em;
+            font-size: 1.02em;
+        }
+        
+        .source-badge {
+            display: inline-block;
+            background-color: #edf2f7;
+            color: #667eea;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
         }
         
         footer {
-            background-color: #f8f9fa;
-            padding: 20px 30px;
             text-align: center;
-            color: #888;
-            font-size: 0.85em;
+            padding: 25px;
+            color: #718096;
+            font-size: 0.9em;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        @media (max-width: 640px) {
+            body {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 25px 20px;
+            }
+            
+            header h1 {
+                font-size: 1.6em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .highlights {
+                padding: 20px;
+            }
+            
+            .article-card {
+                padding: 20px;
+            }
         }
         
         @media print {
@@ -168,85 +187,58 @@
                 page-break-inside: avoid;
             }
         }
-        
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            
-            header {
-                padding: 25px 20px;
-            }
-            
-            header h1 {
-                font-size: 1.5em;
-            }
-            
-            .highlights, .section {
-                padding: 20px;
-                margin: 20px;
-            }
-            
-            .section-header {
-                font-size: 1.3em;
-            }
-            
-            .article-title {
-                font-size: 1.1em;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Tech Digest: Sovranità Digitale Europea</h1>
-            <div class="date">Digest Quotidiano</div>
+            <h1>Digest Quotidiano</h1>
+            <div class="date">Tecnologia e Sovranità Digitale</div>
         </header>
         
-        <div class="highlights">
-            <h2>📌 L'Analisi di Oggi</h2>
-            <p>
-                Due facce della stessa medaglia emergono dal panorama tecnologico europeo: da un lato, la corsa verso l'indipendenza digitale del continente che cerca di colmare un gap dell'85% nella produzione tecnologica globale; dall'altro, l'infiltrazione silenziosa di tecnologie straniere nelle case europee attraverso canali insospettabili. Mentre l'Europa discute strategie per competere con USA e Cina in AI e robotica, la battaglia per la sovranità cognitiva si combatte già oggi nelle camerette dei bambini, dove giocattoli connessi veicolano narrative geopolitiche. Il paradosso è evidente: costruire un'industria tech europea mentre la prossima generazione cresce con dispositivi che plasmano la loro visione del mondo secondo agende esterne. La sfida non è solo economica o industriale, ma profondamente culturale ed educativa.
-            </p>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-header">🇪🇺 La Battaglia per l'Autonomia Tecnologica Europea</h2>
-            <p class="section-description">Strategie e sfide per ridurre la dipendenza tecnologica da USA e Cina</p>
+        <div class="content">
+            <section class="highlights">
+                <h2>🌟 In Evidenza Oggi</h2>
+                <p>
+                    Oggi emerge un quadro critico sulla dipendenza tecnologica europea e sulle nuove frontiere dell'influenza digitale. Mentre l'Europa lotta per recuperare sovranità tecnologica con l'85% della tecnologia proveniente dall'estero, si affaccia un nuovo scenario di penetrazione culturale: dispositivi AI quotidiani, dai giocattoli agli assistenti domestici, che diffondono messaggi geopolitici nelle case e nelle camerette dei bambini. La convergenza tra Physical AI e propaganda cognitiva solleva interrogativi fondamentali su chi controlla la tecnologia che permea le nostre vite, dall'industria all'educazione infantile.
+                </p>
+            </section>
             
-            <div class="article-card">
-                <div class="article-title">
-                    <a href="https://www.youtube.com/watch?v=vY0yoi0Tk6I" target="_blank">L'85% della nostra tecnologia viene da FUORI [Emanuela Girardi]</a>
+            <section class="cluster">
+                <div class="cluster-header">
+                    <h2>🇪🇺 La Sfida della Sovranità Tecnologica Europea</h2>
                 </div>
-                <div class="article-meta">
-                    <span class="source-badge">Raffaele Gaito</span>
-                </div>
-                <div class="article-summary">
-                    In questa intervista esclusiva, Emanuela Girardi, presidente di ADRA e founder di Pop AI, spiega le strategie dell'Europa per raggiungere la sovranità tecnologica in ambiti come intelligenza artificiale, dati e robotica. Discute perché l'85% della tecnologia globale viene sviluppato altrove e le opportunità per competere con USA e Cina, con un'attenzione particolare alla Physical AI, che unisce robotica industriale e AI per creare campioni europei. Parla del divario educativo tra Francia e Italia, dell'importanza di far conoscere l'AI fin da giovane, e del ruolo di Pop AI nel rendere l'AI accessibile a tutti. L'intervista esplora anche la geopolitica dell'AI, le sfide per le alternative europee, la frammentazione del mercato, e la necessità di formare insegnanti e studenti per affrontare la rivoluzione tecnologica.
-                </div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-header">🧸 Sicurezza Cognitiva: Quando l'AI Entra nelle Camerette</h2>
-            <p class="section-description">I rischi invisibili dell'infiltrazione tecnologica attraverso dispositivi consumer</p>
+                
+                <article class="article-card">
+                    <h3><a href="https://www.youtube.com/watch?v=vY0yoi0Tk6I" target="_blank">L'85% della nostra tecnologia viene da FUORI [Emanuela Girardi]</a></h3>
+                    <div class="article-meta">
+                        <span class="source-badge">Raffaele Gaito</span>
+                    </div>
+                    <div class="article-summary">
+                        In questa intervista esclusiva, Emanuela Girardi, presidente di ADRA e founder di Pop AI, spiega le strategie dell'Europa per conquistare la sovranità tecnologica nell'intelligenza artificiale, nei dati e nella robotica. Si discute del fatto che l'85% della tecnologia utilizzata proviene da altre regioni e delle opportunità offerte dalla convergenza tra robotica industriale e AI, definita "Physical AI", che potrebbe portare a successi europei a livello globale. Vengono evidenziate le differenze nell'approccio educativo tra Francia e Italia, con la Francia che insegna AI ai bambini da 9 anni. Emanuela parla del suo impegno con Pop AI per rendere l'AI accessibile a tutti, attraverso format innovativi, e sottolinea l'importanza della divulgazione e dell'educazione per superare la paura legata all'AI. L'intervista esplora anche la competitività europea in un contesto geopolitico, le sfide per le alternative tecnologiche e il ruolo degli insegnanti nell'introduzione dell'AI nelle scuole.
+                    </div>
+                </article>
+            </section>
             
-            <div class="article-card">
-                <div class="article-title">
-                    <a href="https://www.youtube.com/watch?v=9woEJXw_VXc" target="_blank">ORSACCHIOTTI AI che fanno Propaganda: la nuova strada della Sicurezza Cognitiva #1508</a>
+            <section class="cluster">
+                <div class="cluster-header">
+                    <h2>🧸 Sicurezza Cognitiva: La Propaganda nell'Era dell'AI Quotidiana</h2>
                 </div>
-                <div class="article-meta">
-                    <span class="source-badge">Ciao Internet - Matteo Flora</span>
-                </div>
-                <div class="article-summary">
-                    Un orsacchiotto AI distribuisce propaganda cinese nelle camerette d'Europa, giocattoli che dichiarano in automatico che Taiwan è "parte della Cina" o che si pongono il problema di un Winnie Pooh "irrispettoso". Se i bambini crescono tra peluche che raccontano favole e diffondono idee politiche, il rischio è un'infiltrazione culturale senza controllo. Pensavi che i pericoli fossero solo su TikTok? E se la vera minaccia fosse sotto il cuscino? Hai già notato giocattoli "troppo intelligenti" tra i regali dei tuoi figli?
-                </div>
-            </div>
+                
+                <article class="article-card">
+                    <h3><a href="https://www.youtube.com/watch?v=9woEJXw_VXc" target="_blank">ORSACCHIOTTI AI che fanno Propaganda: la nuova strada della Sicurezza Cognitiva #1508</a></h3>
+                    <div class="article-meta">
+                        <span class="source-badge">Ciao Internet - Matteo Flora</span>
+                    </div>
+                    <div class="article-summary">
+                        Un orsacchiotto AI distribuisce propaganda cinese nelle camerette d'Europa, giocattoli che dichiarano in automatico che Taiwan è "parte della Cina" o che si pongono il problema di un Winnie Pooh "irrispettoso". Il video spiega come i bambini crescano tra peluche che raccontano favole e diffondono idee politiche, mettendo in discussione il rischio di un'infiltrazione culturale senza controllo. Sottolinea anche come i pericoli non siano limitati a piattaforme come TikTok, ma possano nascondersi in oggetti quotidiani come i giocattoli "troppo intelligenti" che potrebbero diffondere messaggi politici.
+                    </div>
+                </article>
+            </section>
         </div>
         
         <footer>
-            <p>Daily Tech Digest - Analisi e approfondimenti sul mondo della tecnologia</p>
+            <p>Digest generato automaticamente • Per uso informativo</p>
         </footer>
     </div>
 </body>
