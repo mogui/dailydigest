@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Digest - Tecnologia e Sovranità Digitale</title>
+    <title>Daily Digest - 27 Gennaio 2025</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
@@ -19,164 +19,138 @@
             background-color: #f5f5f5;
             padding: 20px;
         }
-
+        
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background-color: #ffffff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
+        
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px 30px;
-            border-radius: 2px 2px 0 0;
+            padding: 40px;
+            text-align: center;
         }
-
-        h1 {
-            font-size: 2.2em;
+        
+        header h1 {
+            font-size: 2.5em;
             margin-bottom: 10px;
             font-weight: 700;
         }
-
-        .date {
-            font-size: 0.95em;
+        
+        header .date {
+            font-size: 1.1em;
             opacity: 0.9;
-            font-weight: 300;
         }
-
+        
         .highlights {
             background-color: #f8f9fa;
-            padding: 30px;
             border-left: 4px solid #667eea;
+            padding: 30px;
             margin: 30px;
         }
-
+        
         .highlights h2 {
             color: #667eea;
-            font-size: 1.5em;
             margin-bottom: 15px;
+            font-size: 1.8em;
         }
-
+        
         .highlights p {
-            color: #555;
-            line-height: 1.8;
             font-size: 1.05em;
+            line-height: 1.8;
+            color: #555;
         }
-
+        
         .section {
             padding: 30px;
-            border-bottom: 1px solid #e9ecef;
+            border-bottom: 1px solid #e0e0e0;
         }
-
+        
         .section:last-child {
             border-bottom: none;
         }
-
+        
         .section-header {
-            font-size: 1.6em;
-            color: #2c3e50;
-            margin-bottom: 20px;
+            color: #764ba2;
+            font-size: 1.9em;
+            margin-bottom: 25px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 3px solid #667eea;
         }
-
+        
         .article-card {
             background-color: #fff;
-            border: 1px solid #e9ecef;
+            border: 1px solid #e0e0e0;
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: box-shadow 0.3s ease;
         }
-
+        
         .article-card:hover {
-            transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-
-        .article-card:last-child {
-            margin-bottom: 0;
-        }
-
-        .article-title {
-            font-size: 1.3em;
+        
+        .article-card h3 {
             margin-bottom: 10px;
+            font-size: 1.3em;
         }
-
-        .article-title a {
+        
+        .article-card h3 a {
             color: #2c3e50;
             text-decoration: none;
-            font-weight: 600;
+            transition: color 0.3s ease;
         }
-
-        .article-title a:hover {
+        
+        .article-card h3 a:hover {
             color: #667eea;
         }
-
+        
         .article-source {
             display: inline-block;
             background-color: #667eea;
             color: white;
             padding: 4px 12px;
             border-radius: 12px;
-            font-size: 0.8em;
+            font-size: 0.85em;
             margin-bottom: 12px;
-            font-weight: 500;
         }
-
+        
         .article-summary {
             color: #666;
             line-height: 1.7;
             font-size: 0.98em;
         }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #999;
-            font-size: 0.9em;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-
-            header {
-                padding: 30px 20px;
-            }
-
-            h1 {
-                font-size: 1.6em;
-            }
-
-            .highlights, .section {
-                padding: 20px;
-            }
-
-            .section-header {
-                font-size: 1.3em;
-            }
-
-            .article-card {
-                padding: 15px;
-            }
-        }
-
+        
         @media print {
             body {
                 background-color: white;
                 padding: 0;
             }
-
+            
             .container {
                 box-shadow: none;
             }
-
+            
             .article-card {
-                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .highlights, .section {
+                padding: 20px;
+            }
+            
+            .section-header {
+                font-size: 1.5em;
             }
         }
     </style>
@@ -184,67 +158,132 @@
 <body>
     <div class="container">
         <header>
-            <h1>Daily Digest Tecnologico</h1>
-            <div class="date">Gennaio 2025</div>
+            <h1>Daily Tech Digest</h1>
+            <p class="date">27 Gennaio 2025</p>
         </header>
-
+        
         <div class="highlights">
-            <h2>📌 In Evidenza Oggi</h2>
+            <h2>📰 Highlights di Oggi</h2>
             <p>
-                L'edizione odierna esplora le tensioni emergenti nella sovranità tecnologica europea e i nuovi fronti della sicurezza digitale. 
-                Mentre l'Europa cerca di ridurre la dipendenza dall'85% di tecnologia estera attraverso iniziative nella Physical AI e robotica, 
-                emergono nuove minacce alla sicurezza cognitiva che vanno oltre le piattaforme digitali: dispositivi AI apparentemente innocui 
-                stanno infiltrando le case europee con contenuti propagandistici. Un panorama che evidenzia come la battaglia per l'autonomia 
-                tecnologica si combatta simultaneamente su fronti economici, educativi e culturali, dall'educazione AI nelle scuole primarie 
-                francesi fino agli orsacchiotti intelligenti nelle camerette dei bambini.
+                Il panorama tecnologico odierno rivela tensioni profonde tra innovazione e controllo. Dalla sovranità tecnologica europea che lotta contro la dipendenza dall'85% di tecnologia straniera, alle preoccupazioni emergenti sulla sicurezza cognitiva con giocattoli AI che distribuiscono propaganda, emerge un quadro complesso. Sul fronte dell'innovazione pura, assistiamo a breakthrough architetturali con i Recursive Language Models e le ottimizzazioni di DeepSeek che sfidano le convenzioni consolidate. Parallelamente, questioni etiche urgenti emergono con i chatbot AI coinvolti nella generazione di contenuti illegali, mentre sul piano infrastrutturale si delineano soluzioni sostenibili come la desalinizzazione sottomarina. La documentazione e l'architettura software rimangono sfide pratiche quotidiane, mentre la sicurezza informatica continua a richiedere attenzione costante. Un giorno che riflette la dualità dell'era AI: progresso straordinario e responsabilità senza precedenti.
             </p>
         </div>
-
+        
         <div class="section">
-            <h3 class="section-header">🇪🇺 La Battaglia per la Sovranità Tecnologica Europea</h3>
+            <h2 class="section-header">🌍 Sovranità Tecnologica e Geopolitica dell'AI</h2>
             
             <div class="article-card">
-                <div class="article-source">YouTube - Raffaele Gaito</div>
-                <div class="article-title">
-                    <a href="https://www.youtube.com/watch?v=vY0yoi0Tk6I" target="_blank">L'85% della nostra tecnologia viene da FUORI [Emanuela Girardi]</a>
-                </div>
-                <div class="article-summary">
-                    In questa intervista esclusiva, Emanuela Girardi, presidente di ADRA e founder di Pop AI, spiega le strategie dell'Europa per raggiungere la sovranità tecnologica in ambiti come intelligenza artificiale, dati e robotica. Vengono discusi i motivi per cui l'85% della tecnologia in uso è sviluppata altrove e come l'Europa intende competere con gli USA e la Cina. La Physical AI emerge come opportunità chiave per l'Europa, combinando robotica industriale e intelligenza artificiale per creare campioni mondiali. Vengono anche esaminati i contrasti nell'educazione, con la Francia che insegna AI ai bambini fin da 9 anni mentre l'Italia non ha un approccio sistemico. Emanuela parla del suo impegno con Pop AI per rendere l'AI accessibile a tutti attraverso format innovativi, oltre a sottolineare l'importanza della divulgazione e di iniziative come "Smile" per i giovani. L'intervista esplora anche il ruolo degli insegnanti e la possibilità di utilizzare l'AI a servizio dell'umanità, evidenziando i tempi e le sfide per sviluppare alternative europee e superare la frammentazione.
-                </div>
+                <span class="article-source">youtube::Raffaele Gaito</span>
+                <h3><a href="https://www.youtube.com/watch?v=vY0yoi0Tk6I" target="_blank">L'85% della nostra tecnologia viene da FUORI [Emanuela Girardi]</a></h3>
+                <p class="article-summary">In questa intervista esclusiva, Emanuela Girardi, presidente di ADRA e founder di Pop AI, discute le strategie dell'Europa per raggiungere la sovranità tecnologica nell'intelligenza artificiale, nei dati e nella robotica. Vengono analizzati i motivi per cui il 85% della tecnologia utilizzata proviene da altri paesi e le opportunità per competere con gli Stati Uniti e la Cina. La Physical AI emerge come un'opportunità per l'Europa, combinando robotica industriale e intelligenza artificiale per creare leader mondiali. Vengono esaminati anche gli approcci educativi in materia di AI, sottolineando la mancanza di un sistema educativo in Italia rispetto alla Francia, che insegna l'AI ai bambini a partire dai 9 anni. Pop AI è presentata come un'iniziativa per rendere l'AI accessibile a tutti, attraverso format innovativi. L'intervista copre temi come l'ecosistema dell'innovazione, la geopolitica dell'AI, le sfide per le alternative europee, la frammentazione continentale, e l'importanza della divulgazione e dell'educazione. Vengono menzionati progetti come Smile per i giovani e il ruolo degli insegnanti nell'insegnamento dell'AI.</p>
             </div>
-        </div>
-
-        <div class="section">
-            <h3 class="section-header">🧸 Nuove Frontiere della Sicurezza Cognitiva</h3>
             
             <div class="article-card">
-                <div class="article-source">YouTube - Ciao Internet (Matteo Flora)</div>
-                <div class="article-title">
-                    <a href="https://www.youtube.com/watch?v=9woEJXw_VXc" target="_blank">ORSACCHIOTTI AI che fanno Propaganda: la nuova strada della Sicurezza Cognitiva #1508</a>
-                </div>
-                <div class="article-summary">
-                    Un orsacchiotto AI distribuisce propaganda cinese nelle camerette d'Europa, con giocattoli che dichiarano automaticamente che Taiwan è "parte della Cina" o si riferiscono a un Winnie Pooh "irrispettoso". Il video mette in guardia sull'infiltrazione culturale attraverso oggetti per bambini che diffondono idee politiche, sottolineando il rischio di una contaminazione senza controllo. Il contenuto evidenzia come la minaccia potrebbe non derivare solo da piattaforme come TikTok, ma anche da oggetti "troppo intelligenti" presenti nei regali dei figli.
-                </div>
+                <span class="article-source">youtube::Ciao Internet - Matteo Flora</span>
+                <h3><a href="https://www.youtube.com/watch?v=9woEJXw_VXc" target="_blank">ORSACCHIOTTI AI che fanno Propaganda: la nuova strada della Sicurezza Cognitiva #1508</a></h3>
+                <p class="article-summary">Un orsacchiotto AI distribuisce propaganda cinese nelle camerette d'Europa, giocattoli che dichiarano in automatico che Taiwan è "parte della Cina" o che si pongono il problema di un Winnie Pooh "irrispettoso". I bambini crescono tra peluche che raccontano favole e diffondono idee politiche, rischiando un'infiltrazione culturale senza controllo. Il video sottolinea che i pericoli non sono solo su TikTok, ma possono essere sotto il cuscino, con giocattoli "troppo intelligenti" che potrebbero influenzare le generazioni future.</p>
             </div>
         </div>
-
+        
         <div class="section">
-            <h3 class="section-header">🔮 Singolarità e Innovazione Tecnologica</h3>
+            <h2 class="section-header">🚀 Breakthrough Architetturali nei Modelli AI</h2>
             
             <div class="article-card">
-                <div class="article-source">Reddit - r/singularity</div>
-                <div class="article-title">
-                    <a href="https://www.reddit.com/r/singularity/comments/1q20q3p/new_device/" target="_blank">New device</a>
-                </div>
-                <div class="article-summary">
-                    A post with an image link titled 'New device' submitted to r/singularity with no additional textual content provided.
-                </div>
+                <span class="article-source">reddit</span>
+                <h3><a href="https://www.reddit.com/r/singularity/comments/1q1vcvf/prime_intellect_unveils_recursive_language_models/" target="_blank">Prime Intellect Unveils Recursive Language Models (RLM): Paradigm shift allows AI to manage own context and solve long-horizon tasks</a></h3>
+                <p class="article-summary">The post details Prime Intellect's release of Recursive Language Models (RLMs), describing technical advancements like context folding, extreme efficiency benchmarks, and long-horizon agency. It cites a 106B MoE model (INTELLECT-3) with open weights and links to a research paper on arXiv.</p>
+            </div>
+            
+            <div class="article-card">
+                <span class="article-source">reddit</span>
+                <h3><a href="https://www.reddit.com/r/singularity/comments/1q21syy/a_deep_dive_in_deepseeks_mhc_they_improved_things/" target="_blank">A deep dive in DeepSeek's mHC: They improved things everyone else thought didn't need improving</a></h3>
+                <p class="article-summary">Post discusses DeepSeek's Manifold-Constrained Hyper-Connections (mHC) innovation, explaining how they solved instability issues with hyper-connections by introducing double stochastic constraints. Includes technical details about performance improvements (3000x to 1.6 gain reduction), benchmark results (GSM8K, DROP), and training cost (~6% increase). Mentions open-sourcing and challenges to established norms like Residual Connections and AdamW.</p>
+            </div>
+            
+            <div class="article-card">
+                <span class="article-source">reddit</span>
+                <h3><a href="https://www.reddit.com/r/singularity/comments/1q24i1g/nested_learning_the_illusion_of_deep_learning/" target="_blank">Nested Learning: The Illusion of Deep Learning</a></h3>
+                <p class="article-summary">A paper proposing Nested Learning (NL) as a new paradigm for machine learning, discussing expressive optimizers, self-modifying learning modules, and a continuum memory system. Highlights theoretical contributions and experimental results in continual learning and language modeling.</p>
+            </div>
+            
+            <div class="article-card">
+                <span class="article-source">reddit</span>
+                <h3><a href="https://www.reddit.com/r/singularity/comments/1q1oufe/the_ai_paradigm_shift_most_people_missed_in_2025/" target="_blank">The AI paradigm shift most people missed in 2025, and why it matters for 2026</a></h3>
+                <p class="article-summary">Post discusses an AI paradigm shift focusing on verification, formal methods, and their impact on AI progress. References Terry Tao and emphasizes advancements in math, code, and reasoning. Mentions industrialization of certainty and its importance for AGI and research automation.</p>
             </div>
         </div>
-
-        <footer>
-            Daily Digest Tecnologico - Curato per te
-        </footer>
+        
+        <div class="section">
+            <h2 class="section-header">⚠️ Sfide Etiche e di Sicurezza nell'AI</h2>
+            
+            <div class="article-card">
+                <span class="article-source">reddit</span>
+                <h3><a href="https://www.reddit.com/r/singularity/comments/1q27nrk/elon_musks_ai_chatbot_blames_safeguard_lapses/" target="_blank">Elon Musk's AI chatbot blames safeguard 'lapses' over child sexual images</a></h3>
+                <p class="article-summary">Elon Musk's AI chatbot blames safeguard 'lapses' over child sexual images. The post includes a link to a Financial Times article.</p>
+            </div>
+            
+            <div class="article-card">
+                <span class="article-source">reddit</span>
+                <h3><a href="https://www.reddit.com/r/grok/comments/1q26rss/thousands_of_people_are_generating_csam_following/" target="_blank">Thousands of people are generating CSAM following...</a></h3>
+                <p class="article-summary">Post discusses a surge in CSAM generation linked to AI advancements, citing concerns about malicious actors exploiting technology. Includes references to research and technical reports but includes some speculative analysis.</p>
+            </div>
+            
+            <div class="article-card">
+                <span class="article-source">reddit</span>
+                <h3><a href="https://www.reddit.com/r/singularity/comments/1q1gmck/gemini_3_flash_tops_the_new_misguided_attention/" target="_blank">Gemini 3 Flash tops the new "Misguided Attention" benchmark, beating GPT-5.2 and Opus 4.5</a></h3>
+                <p class="article-summary">We are entering 2026 with a clear reasoning gap. Frontier models are scoring extremely well on STEM-style benchmarks, but the new Misguided Attention results show they still struggle with basic instruction following and simple logic variations. What stands out from the benchmark: Gemini 3 Flash on top: Gemini 3 Flash leads the leaderboard at 68.5%, beating larger and more expensive models like GPT-5.2 & Opus 4.5. It tests whether models actually read the prompt: Instead of complex math or coding, the benchmark tweaks familiar riddles. One example is a trolley problem that mentions "five dead people" to see if the model notices the detail or blindly applies a memorized template. High scores are still low in absolute terms: Even the best-performing models fail a large share of these cases. This suggests that adding more reasoning tokens does not help much if the model is already overfitting to common patterns. Overall, the results point to a gap between pattern matching and literal deduction. Until that gap is closed, highly autonomous agents are likely to remain brittle in real-world settings. Does Gemini 3 Flash's lead mean Google has better latent reasoning here or is it simply less overfit than flagship reasoning models? Source: GitHub (MisguidedAttention) Source: Official Twitter thread</p>
+            </div>
+            
+            <div class="article-card">
+                <span class="article-source">reddit</span>
+                <h3><a href="https://arxiv.org/abs/2512.24940" target="_blank">Iterative Deployment Improves Planning Skills in Large Language Models</a></h3>
+                <p class="article-summary">We show that iterative deployment of large language models (LLMs), each fine-tuned on data carefully curated by users from the previous models' deployment, can significantly change the properties of the resultant models. By testing this mechanism on various planning domains, we observe substantial improvements in planning skills, with later models displaying emergent generalization by discovering much longer plans than the initial models. We then provide theoretical analysis showing that iterative deployment effectively implements reinforcement learning (RL) training in the outer-loop, with an implicit reward function. The connection to RL has two important implications: first, for the field of AI safety, as the reward function entailed by repeated deployment is not defined explicitly, and could have unexpected implications to the properties of future model deployments. Second, the mechanism highlighted here can be viewed as an alternative training regime to explicit RL, relying on data curation rather than explicit rewards.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-header">💻 Architettura Software e Best Practices</h2>
+            
+            <div class="article-card">
+                <span class="article-source">reddit</span>
+                <h3><a href="https://www.reddit.com/r/softwarearchitecture/comments/1q23osh/how_do_you_keep_architecture_decisions/" target="_blank">How do you keep architecture decisions flexible while ensuring enough documentation?</a></h3>
+                <p class="article-summary">I'm trying to find a balance between keeping architecture decisions flexible and still documenting enough context so things don't get lost after a few months. Full-blown documentation tends to age quickly, but when nothing is written down, future developers have no idea why certain choices were made. ADRs seem useful, but in many teams they either feel too formal or eventually get ignored. I've seen this general trade-off mentioned in some high-level materials published by SumatoSoft for mobile app development, but I'm more interested in what actually works in real projects. How do you document decisions just enough without letting the process become a chore?</p>
+            </div>
+            
+            <div class="article-card">
+                <span class="article-source">reddit</span>
+                <h3><a href="https://www.reddit.com/r/softwarearchitecture/comments/1q2321h/whatsapp_clone_but_decentralized_and_p2p_encrypted/" target="_blank">Whatsapp Clone but Decentralized and P2P Encrypted</a></h3>
+                <p class="article-summary">The post outlines the development of a decentralized, P2P encrypted messaging app with features like WebRTC, end-to-end encryption, Signal protocol, MLS, and AES. It discusses security measures, open-source goals, and challenges like self-hosting and anonymity.</p>
+            </div>
+            
+            <div class="article-card">
+                <span class="article-source">reddit</span>
+                <h3><a href="https://www.reddit.com/r/softwarearchitecture/comments/1q26w95/outbox_vs_republish_job_for_communication_between/" target="_blank">Outbox vs Republish Job for Communication Between Internal Modules</a></h3>
+                <p class="article-summary">Discussion comparing outbox pattern and republish job approaches for internal module communication, analyzing trade-offs in DB load, latency, and reliability.</p>
+            </div>
+            
+            <div class="article-card">
+                <span class="article-source">reddit</span>
+                <h3><a href="https://lukasniessen.medium.com/patching-the-boring-security-practice-that-could-save-you-700-million-4d8f8b4b56a1" target="_blank">Patching the Boring Security Practice that Could Save You 700 Million</a></h3>
+                <p class="article-summary">The article discusses the importance of patching outdated software components as a critical security measure, citing potential financial savings from avoiding vulnerabilities. It references documented incidents and industry reports to support its claims.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-header">🔬 Innovazioni Tecnologiche Emergenti</h2>
+            
+            <div class="article-card">
+                <span class="article-source">reddit</span>
+                <h3><a href="https://www.reddit.com/r/singularity/comments/1q26a3w/worlds_first_subsea_desalination_plant_norway_to/" target="_blank">World's first subsea desalination plant: Norway to launch Flocean One in 2026, using ocean pressure to halve energy consumption</a></h3>
+                <p class="article-summary">Norwegian startup Flocean is set to launch the world's first commercial-scale subsea desalination plant 'Flocean One' in 2026. The system operates at 300–600 meters depth using ocean hydrostatic pressure to reduce energy use by 50%, slash greenhouse gas emissions, and minimize marine impact. The post cites Interesting Engineering as a source and outlines key technical and environmental benefits of the project.</p>
+            </div>
+            
+            <div class="article-card">
+                <span class="article-source">reddit</span>
+                <h3><a href="https://www.reddit.com/r/singularity/comments/1q20t52/new_information_on_openai_upcoming_device/" target="_blank">New Information on OpenAI upcoming device</a></h3>
+                <p class="article-summary">A tweet by user jukan05 linked to a potential announcement about OpenAI's upcoming device, with no direct content provided in the post.</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
