@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Digest - 1 Gennaio 2026</title>
+    <title>Daily Digest - Tecnologia e Sovranità Digitale</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
@@ -19,144 +19,164 @@
             background-color: #f5f5f5;
             padding: 20px;
         }
-        
+
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             background-color: #ffffff;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        
+
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px;
-            text-align: center;
+            padding: 40px 30px;
+            border-radius: 2px 2px 0 0;
         }
-        
-        header h1 {
-            font-size: 2.5em;
+
+        h1 {
+            font-size: 2.2em;
             margin-bottom: 10px;
             font-weight: 700;
         }
-        
-        header .date {
-            font-size: 1.1em;
+
+        .date {
+            font-size: 0.95em;
             opacity: 0.9;
+            font-weight: 300;
         }
-        
+
         .highlights {
             background-color: #f8f9fa;
-            border-left: 4px solid #667eea;
             padding: 30px;
+            border-left: 4px solid #667eea;
             margin: 30px;
         }
-        
+
         .highlights h2 {
             color: #667eea;
+            font-size: 1.5em;
             margin-bottom: 15px;
-            font-size: 1.8em;
         }
-        
+
         .highlights p {
             color: #555;
-            font-size: 1.05em;
             line-height: 1.8;
+            font-size: 1.05em;
         }
-        
+
         .section {
-            margin: 40px 30px;
+            padding: 30px;
+            border-bottom: 1px solid #e9ecef;
         }
-        
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
         .section-header {
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 20px;
-            margin-bottom: 25px;
-            border-radius: 5px;
-        }
-        
-        .section-header h2 {
             font-size: 1.6em;
-            font-weight: 600;
-        }
-        
-        .article-card {
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 25px;
+            color: #2c3e50;
             margin-bottom: 20px;
-            transition: box-shadow 0.3s ease;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
         }
-        
+
+        .article-card {
+            background-color: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
         .article-card:hover {
+            transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        
-        .article-card h3 {
-            margin-bottom: 10px;
-            font-size: 1.3em;
-            line-height: 1.4;
+
+        .article-card:last-child {
+            margin-bottom: 0;
         }
-        
-        .article-card h3 a {
+
+        .article-title {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .article-title a {
             color: #2c3e50;
             text-decoration: none;
-            transition: color 0.3s ease;
+            font-weight: 600;
         }
-        
-        .article-card h3 a:hover {
+
+        .article-title a:hover {
             color: #667eea;
         }
-        
-        .article-meta {
-            color: #888;
-            font-size: 0.9em;
+
+        .article-source {
+            display: inline-block;
+            background-color: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
             margin-bottom: 12px;
-            font-style: italic;
+            font-weight: 500;
         }
-        
+
         .article-summary {
-            color: #555;
+            color: #666;
             line-height: 1.7;
+            font-size: 0.98em;
         }
-        
+
         footer {
             text-align: center;
-            padding: 30px;
-            color: #888;
-            border-top: 1px solid #e0e0e0;
-            margin-top: 40px;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9em;
         }
-        
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            header {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            .highlights, .section {
+                padding: 20px;
+            }
+
+            .section-header {
+                font-size: 1.3em;
+            }
+
+            .article-card {
+                padding: 15px;
+            }
+        }
+
         @media print {
             body {
                 background-color: white;
                 padding: 0;
             }
-            
+
             .container {
                 box-shadow: none;
             }
-            
+
             .article-card {
-                page-break-inside: avoid;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8em;
-            }
-            
-            .highlights, .section {
-                margin: 20px 15px;
-                padding: 20px;
-            }
-            
-            .article-card {
-                padding: 20px;
+                break-inside: avoid;
             }
         }
     </style>
@@ -164,218 +184,66 @@
 <body>
     <div class="container">
         <header>
-            <h1>Daily Tech Digest</h1>
-            <div class="date">1 Gennaio 2026</div>
+            <h1>Daily Digest Tecnologico</h1>
+            <div class="date">Gennaio 2025</div>
         </header>
-        
+
         <div class="highlights">
-            <h2>I Punti Salienti di Oggi</h2>
+            <h2>📌 In Evidenza Oggi</h2>
             <p>
-                Il 2026 si apre con una riflessione profonda sul futuro della tecnologia e i suoi impatti culturali e geopolitici. Mentre l'intelligenza artificiale continua la sua marcia inesorabile verso l'integrazione quotidiana, emergono questioni cruciali sulla sovranità tecnologica europea e sulla sicurezza cognitiva. La convergenza tra hardware e software raggiunge nuovi livelli con robotaxi che promettono di rivoluzionare il trasporto urbano e interfacce neurali che entrano in produzione di massa. Nel frattempo, il mondo dell'ingegneria software affronta una divergenza epocale: chi saprà adattare i propri processi oltre la semplice velocità di codifica dominerà il futuro. E mentre l'industria tech dichiara guerra agli schermi puntando sull'audio, emergono preoccupazioni inquietanti su come l'AI possa infiltrarsi nelle nostre case attraverso giocattoli apparentemente innocenti, sollevando questioni profonde sulla propaganda e l'influenza culturale nell'era digitale.
+                L'edizione odierna esplora le tensioni emergenti nella sovranità tecnologica europea e i nuovi fronti della sicurezza digitale. 
+                Mentre l'Europa cerca di ridurre la dipendenza dall'85% di tecnologia estera attraverso iniziative nella Physical AI e robotica, 
+                emergono nuove minacce alla sicurezza cognitiva che vanno oltre le piattaforme digitali: dispositivi AI apparentemente innocui 
+                stanno infiltrando le case europee con contenuti propagandistici. Un panorama che evidenzia come la battaglia per l'autonomia 
+                tecnologica si combatta simultaneamente su fronti economici, educativi e culturali, dall'educazione AI nelle scuole primarie 
+                francesi fino agli orsacchiotti intelligenti nelle camerette dei bambini.
             </p>
         </div>
-        
+
         <div class="section">
-            <div class="section-header">
-                <h2>🎯 L'Era dell'AI: Riflessioni e Previsioni</h2>
-            </div>
+            <h3 class="section-header">🇪🇺 La Battaglia per la Sovranità Tecnologica Europea</h3>
             
             <div class="article-card">
-                <h3><a href="https://danwang.co/2025-letter/?utm_source=tldrnewsletter" target="_blank">2025 LETTER</a></h3>
-                <div class="article-meta">Fonte: danwang.co | Lettura: 80 minuti</div>
-                <div class="article-summary">Silicon Valley and the Communist Party are similar in that both are serious, self-serious, and completely humorless. They both tend to speak in either a bland corporate tone or a philosophical register. These two forces both aim to increase their centrality while weakening the agency of whole nation-states. This article looks at how the two parties differ in their AI efforts and what that might mean for the future of humanity.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://www.philschmid.de/2026-predictions?utm_source=tldrnewsletter" target="_blank">8 PREDICTIONS FOR 2026. WHAT COMES NEXT IN AI?</a></h3>
-                <div class="article-meta">Fonte: philschmid.de | Lettura: 3 minuti</div>
-                <div class="article-summary">2026 will see generative UI, Smart Home fulfillment, biometric personhood login, and agents integrating into daily life. Deep technical intuition will distinguish engineers.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://www.understandingai.org/p/17-predictions-for-ai-in-2026?utm_source=tldrnewsletter" target="_blank">17 PREDICTIONS FOR AI IN 2026</a></h3>
-                <div class="article-meta">Fonte: understandingai.org | Lettura: 23 minuti</div>
-                <div class="article-summary">AI models will continue improving, but broader economic impacts will take time to materialize.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://simonwillison.net/2025/Dec/31/the-year-in-llms/#atom-everything?utm_source=tldrnewsletter" target="_blank">2025: THE YEAR IN LLMS</a></h3>
-                <div class="article-meta">Fonte: simonwillison.net | Lettura: 42 minuti</div>
-                <div class="article-summary">Reasoning was a prominent feature of major AI models in 2025, with significant advancements across labs.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://samuelalbanie.substack.com/p/reflections-on-2025?utm_source=tldrnewsletter" target="_blank">REFLECTIONS ON 2025</a></h3>
-                <div class="article-meta">Fonte: samuelalbanie.substack.com | Lettura: 29 minuti</div>
-                <div class="article-summary">AI progress aligns with hardware advancements. Next-gen hardware will make current systems seem primitive, indicating the field is just beginning rather than approaching a plateau.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://danielmiessler.com/blog/cybersecurity-ai-changes-2026?utm_source=tldrnewsletter" target="_blank">HERE ARE THE MAJOR CHANGES I SEE COMING FOR CYBERSECURITY IN 2026</a></h3>
-                <div class="article-meta">Fonte: danielmiessler.com | Lettura: 10 minuti</div>
-                <div class="article-summary">AI will dominate cybersecurity, with increased spending on agentic platforms. Asset management will become feasible via agents, and most security platforms will be replaced by AI prompts.</div>
+                <div class="article-source">YouTube - Raffaele Gaito</div>
+                <div class="article-title">
+                    <a href="https://www.youtube.com/watch?v=vY0yoi0Tk6I" target="_blank">L'85% della nostra tecnologia viene da FUORI [Emanuela Girardi]</a>
+                </div>
+                <div class="article-summary">
+                    In questa intervista esclusiva, Emanuela Girardi, presidente di ADRA e founder di Pop AI, spiega le strategie dell'Europa per raggiungere la sovranità tecnologica in ambiti come intelligenza artificiale, dati e robotica. Vengono discusi i motivi per cui l'85% della tecnologia in uso è sviluppata altrove e come l'Europa intende competere con gli USA e la Cina. La Physical AI emerge come opportunità chiave per l'Europa, combinando robotica industriale e intelligenza artificiale per creare campioni mondiali. Vengono anche esaminati i contrasti nell'educazione, con la Francia che insegna AI ai bambini fin da 9 anni mentre l'Italia non ha un approccio sistemico. Emanuela parla del suo impegno con Pop AI per rendere l'AI accessibile a tutti attraverso format innovativi, oltre a sottolineare l'importanza della divulgazione e di iniziative come "Smile" per i giovani. L'intervista esplora anche il ruolo degli insegnanti e la possibilità di utilizzare l'AI a servizio dell'umanità, evidenziando i tempi e le sfide per sviluppare alternative europee e superare la frammentazione.
+                </div>
             </div>
         </div>
-        
+
         <div class="section">
-            <div class="section-header">
-                <h2>🚀 Innovazioni Hardware e Breakthrough Tecnologici</h2>
-            </div>
+            <h3 class="section-header">🧸 Nuove Frontiere della Sicurezza Cognitiva</h3>
             
             <div class="article-card">
-                <h3><a href="https://links.tldrnewsletter.com/YZ7kYF" target="_blank">NEURALINK WILL START HIGH-VOLUME PRODUCTION OF BRAIN-COMPUTER INTERFACE DEVICES IN 2026</a></h3>
-                <div class="article-meta">Fonte: neuralink | Lettura: 1 minuto</div>
-                <div class="article-summary">Neuralink received FDA breakthrough device designation for its speech restoration in 2025. The company also launched clinical trials in the Middle East and the UK, and completed two surgeries in Canada. It upgraded its surgical robot to insert electrode threads every 1.5 seconds at depths over 50mm.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://www.teslarati.com/tesla-fsd-successfully-completes-full-coast-to-coast-drive-with-zero-interventions/?utm_source=tldrnewsletter" target="_blank">TESLA FSD SUCCESSFULLY COMPLETES FULL COAST-TO-COAST DRIVE WITH ZERO INTERVENTIONS</a></h3>
-                <div class="article-meta">Fonte: teslarati.com | Lettura: 2 minuti</div>
-                <div class="article-summary">A Tesla owner successfully drove coast-to-coast across the US on Full Self-Driving (FSD) Supervised with zero interventions during the trip. Their Model 3 completed the drive in 2 days and 20 hours, starting at the Tesla Diner in Los Angeles, CA, and ending in Myrtle Beach, SC. It was accomplished with Tesla FSD V14.2 on AI4 hardware.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://unchartedterritories.tomaspueyo.com/p/the-race-between-waymo-cybercab-and?utm_source=tldrnewsletter" target="_blank">THE RACE BETWEEN WAYMO, CYBERCAB, AND UBER</a></h3>
-                <div class="article-meta">Fonte: unchartedterritories | Lettura: 13 minuti</div>
-                <div class="article-summary">One of the big transformations of this year will be robotaxis. Waymo will likely partner with Uber in many locations because Uber owns demand, but over time, Waymo will want to go direct. Cybercab will appear sometime this year and undercut both Uber and Waymo in price. Uber's demand for rides will go down pretty quickly once price drops - Waymo is currently more expensive than Uber, but it is still thriving because people prefer to ride without a driver.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://threadreaderapp.com/thread/2006790372681220530.html?utm_source=tldrnewsletter" target="_blank">STARLINK IS BEGINNING A SIGNIFICANT RECONFIGURATION OF ITS SATELLITE CONSTELLATION FOCUSED ON INCREASING SPACE SAFETY</a></h3>
-                <div class="article-meta">Fonte: threadreaderapp | Lettura: 1 minuto</div>
-                <div class="article-summary">SpaceX is lowering all Starlink satellites from around 550 km to around 480 km over the course of the year. The shell lowering will be tightly coordinated with other operators, regulators, and USSPACECOM. Condensing Starlink orbits will increase space safety, particularly with difficult-to-control risks like uncoordinated maneuvers and launches by other satellite operators.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://www.theguardian.com/science/2025/dec/31/large-hadron-collider-head-of-cern-mark-thomson?utm_source=tldrnewsletter" target="_blank">THE MAN TAKING OVER THE LARGE HADRON COLLIDER – ONLY TO SWITCH IT OFF</a></h3>
-                <div class="article-meta">Fonte: theguardian | Lettura: 6 minuti</div>
-                <div class="article-summary">Mark Thomson is now the director general of CERN. One of the first things he will do during his term is to turn off the Large Hadron Collider (LHC) to make way for a major upgrade that will make the LHC more precise with its measurements of particles and their interactions. The upgrade will dominate Thomson's five-year tenure. The LHC will reach its end of life around 2041.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://www.theregister.com/2025/12/31/ipv6_at_30/?utm_source=tldrnewsletter" target="_blank">IPV6 JUST TURNED 30 AND STILL HASN'T TAKEN OVER THE WORLD, BUT DON'T CALL IT A FAILURE</a></h3>
-                <div class="article-meta">Fonte: theregister.com | Lettura: 7 minuti</div>
-                <div class="article-summary">IPv6 is not backward-compatible with IPv4, and it doesn't add any major improvements, so there is low incentive to adopt it.</div>
+                <div class="article-source">YouTube - Ciao Internet (Matteo Flora)</div>
+                <div class="article-title">
+                    <a href="https://www.youtube.com/watch?v=9woEJXw_VXc" target="_blank">ORSACCHIOTTI AI che fanno Propaganda: la nuova strada della Sicurezza Cognitiva #1508</a>
+                </div>
+                <div class="article-summary">
+                    Un orsacchiotto AI distribuisce propaganda cinese nelle camerette d'Europa, con giocattoli che dichiarano automaticamente che Taiwan è "parte della Cina" o si riferiscono a un Winnie Pooh "irrispettoso". Il video mette in guardia sull'infiltrazione culturale attraverso oggetti per bambini che diffondono idee politiche, sottolineando il rischio di una contaminazione senza controllo. Il contenuto evidenzia come la minaccia potrebbe non derivare solo da piattaforme come TikTok, ma anche da oggetti "troppo intelligenti" presenti nei regali dei figli.
+                </div>
             </div>
         </div>
-        
+
         <div class="section">
-            <div class="section-header">
-                <h2>💻 Il Futuro dello Sviluppo Software</h2>
-            </div>
+            <h3 class="section-header">🔮 Singolarità e Innovazione Tecnologica</h3>
             
             <div class="article-card">
-                <h3><a href="https://links.tldrnewsletter.com/2tCiuz" target="_blank">2026: THE GREAT ENGINEERING DIVERGENCE</a></h3>
-                <div class="article-meta">Fonte: unknown | Lettura: 5 minuti</div>
-                <div class="article-summary">Once coding speed jumps, everything around it becomes a constraint. Developers' throughput is now capped by clarifying requirements, reviewing changes, validating correctness and performance, getting to production safely, and operating the product. The great engineering divergence will be determined by who raises that ceiling end-to-end. Organizations that update their processes to improve the non-code chokepoints will reap the largest rewards this year.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://dima.day/blog/build-software-build-users/?utm_source=tldrnewsletter" target="_blank">BUILD SOFTWARE. BUILD USERS</a></h3>
-                <div class="article-meta">Fonte: dima.day | Lettura: 4 minuti</div>
-                <div class="article-summary">Writing a lot of tests doesn't always guarantee software quality. Engineers need to study target users more deeply to really understand how they will use their products. One way to do this is by creating AI users to test software. This can result in a feedback loop that allows engineers to iterate quickly.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://herbsutter.com/2025/12/30/software-taketh-away-faster-than-hardware-giveth-why-c-programmers-keep-growing-fast-despite-competition-safety-and-ai/?utm_source=tldrnewsletter" target="_blank">SOFTWARE TAKETH AWAY FASTER THAN HARDWARE GIVETH: WHY C++ PROGRAMMERS KEEP GROWING FAST DESPITE COMPETITION, SAFETY, AND AI</a></h3>
-                <div class="article-meta">Fonte: herbsutter.com | Lettura: 12 minuti</div>
-                <div class="article-summary">Our demand for solving ever-larger computing problems consistently outstrips our ability to build greater computing capacity.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://links.tldrnewsletter.com/pzNUXP" target="_blank">HOW I CODE WITH AGENTS, WITHOUT BEING 'TECHNICAL'</a></h3>
-                <div class="article-meta">Fonte: unknown | Lettura: 18 minuti</div>
-                <div class="article-summary">Ben Tossell, using a software development agent, spent 3 billion tokens in four months without writing code. He learned programming by analyzing agent outputs, shipping projects like a personal site and AI-directed video demo system.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://inclouds.space/on-the-software-job-climate?utm_source=tldrnewsletter" target="_blank">ON THE SOFTWARE JOB CLIMATE</a></h3>
-                <div class="article-meta">Fonte: inclouds.space | Lettura: 3 minuti</div>
-                <div class="article-summary">Hiring budgets are tighter, but may improve if tax codes change, interest rates fall, and data centers lose hype.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://github.com/max-sixty/worktrunk?utm_source=tldrnewsletter" target="_blank">WORKTRUNK</a></h3>
-                <div class="article-meta">Fonte: github | Repository GitHub</div>
-                <div class="article-summary">Worktrunk is a CLI tool for managing git worktrees to run AI agents in parallel, enhancing development workflows.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://links.tldrnewsletter.com/Q20GAl" target="_blank">WELCOME TO GAS TOWN</a></h3>
-                <div class="article-meta">Fonte: unknown | Lettura: 50 minuti</div>
-                <div class="article-summary">Gas Town is an IDE that helps developers with the tedium of running lots of Claude Code instances.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://www.nerd-lang.org/about?utm_source=tldrnewsletter" target="_blank">NERD</a></h3>
-                <div class="article-meta">Fonte: nerd-lang.org | Lettura: 3 minuti</div>
-                <div class="article-summary">NERD is a programming language optimized for large language models, enabling seamless integration with AI workflows.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://www.pfrazee.com/blog/atmospheric-computing?utm_source=tldrnewsletter" target="_blank">ATMOSPHERIC COMPUTING</a></h3>
-                <div class="article-meta">Fonte: pfrazee.com | Lettura: 12 minuti</div>
-                <div class="article-summary">Atmospheric computing connects cloud services for user-owned program storage and execution, enabling decentralized operations.</div>
+                <div class="article-source">Reddit - r/singularity</div>
+                <div class="article-title">
+                    <a href="https://www.reddit.com/r/singularity/comments/1q20q3p/new_device/" target="_blank">New device</a>
+                </div>
+                <div class="article-summary">
+                    A post with an image link titled 'New device' submitted to r/singularity with no additional textual content provided.
+                </div>
             </div>
         </div>
-        
-        <div class="section">
-            <div class="section-header">
-                <h2>🌍 Cultura, Tecnologia e Sovranità Digitale</h2>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://www.youtube.com/watch?v=vY0yoi0Tk6I" target="_blank">L'85% della nostra tecnologia viene da FUORI [Emanuela Girardi]</a></h3>
-                <div class="article-meta">Fonte: YouTube - Raffaele Gaito | Video</div>
-                <div class="article-summary">In questa intervista, Emanuela Girardi, presidente di ADRA e founder di Pop AI, spiega le strategie dell'Europa per recuperare la sovranità tecnologica nell'intelligenza artificiale, nei dati e nella robotica. Discute come l'85% della tecnologia utilizzata in Europa sia sviluppato altrove e le opportunità offerte dalla convergenza tra robotica industriale e AI, notata come Physical AI. Sottolinea l'importanza di un'educazione sistemica all'AI, confrontando l'approccio francese con la mancanza di un piano in Italia. Parla del ruolo di Pop AI nel rendere l'AI accessibile a tutti, attraverso format innovativi, e della necessità di superare la paura legata all'AI. L'intervista esplora temi come la competizione geopolitica, lo sviluppo di alternative europee, la frammentazione del mercato, e il ruolo degli insegnanti nell'educazione tecnologica. Vengono anche menzionati programmi come Smile per i giovani e la divulgazione dell'AI come strumento al servizio dell'umanità.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://www.youtube.com/watch?v=9woEJXw_VXc" target="_blank">ORSACCHIOTTI AI che fanno Propaganda: la nuova strada della Sicurezza Cognitiva #1508</a></h3>
-                <div class="article-meta">Fonte: YouTube - Ciao Internet - Matteo Flora | Video</div>
-                <div class="article-summary">Un orsacchiotto AI distribuisce propaganda cinese nelle camerette d'Europa, giocattoli che dichiarano in automatico che Taiwan è "parte della Cina" o che si pongono il problema di un Winnie Pooh "irrispettoso". Se i bambini crescono tra peluche che raccontano favole e diffondono idee politiche, il rischio è un'infiltrazione culturale senza controllo. Pensavi che i pericoli fossero solo su TikTok? E se la vera minaccia fosse sotto il cuscino? Hai già notato giocattoli "troppo intelligenti" tra i regali dei tuoi figli?</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://lemire.me/blog/2026/01/01/technology-is-culture/?utm_source=tldrnewsletter" target="_blank">TECHNOLOGY IS CULTURE</a></h3>
-                <div class="article-meta">Fonte: lemire.me | Lettura: 2 minuti</div>
-                <div class="article-summary">If you want to understand how and where technological progress happens, you have to look at cultural drivers, not what academia is accomplishing.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://techcrunch.com/2026/01/01/openai-bets-big-on-audio-as-silicon-valley-declares-war-on-screens/?utm_source=tldrnewsletter" target="_blank">OPENAI BETS BIG ON AUDIO AS SILICON VALLEY DECLARES WAR ON SCREENS</a></h3>
-                <div class="article-meta">Fonte: TechCrunch | Lettura: 2 minuti</div>
-                <div class="article-summary">OpenAI has unified several engineering, product, and research teams over the past couple of months to overhaul its audio models. The company is reportedly preparing to launch an audio-first personal device in about a year. Its new audio model will sound more natural, be able to handle interruptions, and even speak when users are talking. The entire tech industry seems to be headed toward a future where screens become background noise and audio takes center stage.</div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <div class="section-header">
-                <h2>📊 Business e Strategie di Mercato</h2>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://links.tldrnewsletter.com/jHv32J" target="_blank">HOW META'S REELS BECAME A $50 BILLION BUSINESS</a></h3>
-                <div class="article-meta">Fonte: unknown | Lettura: 4 minuti</div>
-                <div class="article-summary">Meta's Reels is set to bring in as much as Coca-Cola and Nike, and the company plans to expand to more screens this year.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://links.tldrnewsletter.com/AXBJDZ" target="_blank">HASBRO'S SECRET WEAPON FOR TRAINING ITS NEXT LEADERS: A BOARD GAME</a></h3>
-                <div class="article-meta">Fonte: unknown | Lettura: 6 minuti</div>
-                <div class="article-summary">Hasbro's 'Toy Tycoon' is a role-playing strategy game designed for up-and-coming leaders. The game takes a full day to play. Players confront a series of scenarios that test their managerial mettle. The game helps players think through how to manage their company's cash, time, and other resources, and to pivot when the most thoughtful plans fail. Players aim to build a brand, scale a business, and smartly apply market research.</div>
-            </div>
-            
-            <div class="article-card">
-                <h3><a href="https://links.tldrnewsletter.com/LBEmJU" target="_blank">WELCOME TO 2026</a></h3>
-                <div class="article-meta">Fonte: unknown | Lettura: 4 minuti</div>
-                <div class="article-summary">A look at technological improvements in the recent past and the achievements they will unlock for humanity this year.</div>
-            </div>
-        </div>
-        
+
         <footer>
-            <p>Daily Tech Digest - 1 Gennaio 2026</p>
-            <p>Curato con passione per tenerti aggiornato sulle ultime tendenze tecnologiche</p>
+            Daily Digest Tecnologico - Curato per te
         </footer>
     </div>
 </body>
