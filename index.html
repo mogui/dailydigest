@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News e Video del Giorno</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid #e5e7eb;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+
+    .date {
+      color: #64748b;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .date-picker-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .date-picker {
+      padding: 0.5rem 1rem;
+      font-size: 0.9375rem;
+      border: 2px solid #3b82f6;
+      border-radius: 0.5rem;
+      background: white;
+      color: #0f172a;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .date-picker:hover {
+      border-color: #2563eb;
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+    }
+
+    .date-picker:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .date-label {
+      font-size: 0.875rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #3b82f6;
+    }
+
+    /* Video Cards */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .video-card {
+      background: white;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .video-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .video-thumbnail {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: #f1f5f9;
+    }
+
+    .video-content {
+      padding: 1rem;
+    }
+
+    .video-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .video-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: #64748b;
+    }
+
+    .video-channel {
+      font-weight: 500;
+    }
+
+    /* News List */
+    .news-list {
+      background: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .news-item {
+      padding: 1.5rem;
+      border-bottom: 1px solid #e5e7eb;
+      transition: background-color 0.2s;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+    }
+
+    .news-item:hover {
+      background-color: #f8fafc;
+    }
+
+    .news-image {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .news-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .news-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .news-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #0f172a;
+      flex: 1;
+    }
+
+    .news-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .news-title a:hover {
+      color: #3b82f6;
+    }
+
+    .news-source {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: #dbeafe;
+      color: #1e40af;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .news-abstract {
+      color: #475569;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: #64748b;
+      font-size: 1.125rem;
+    }
+
+    .error {
+      text-align: center;
+      padding: 3rem;
+      color: #dc2626;
+      font-size: 1.125rem;
+      background: #fee;
+      border-radius: 0.75rem;
+      margin: 2rem 0;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-item {
+        flex-direction: column;
+      }
+
+      .news-image {
+        width: 100%;
+        height: 200px;
+      }
+
+      .news-header {
+        flex-direction: column;
+      }
+
+      .news-source {
+        align-self: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📰 News e Video del Giorno</h1>
+      <p class="date" id="current-date"></p>
+      <div class="date-picker-container">
+        <label for="date-picker" class="date-label">Seleziona data:</label>
+        <input type="date" id="date-picker" class="date-picker">
+      </div>
+    </header>
+
+    <div id="loading" class="loading">Caricamento in corso...</div>
+    <div id="error" class="error" style="display: none;"></div>
+
+    <div id="content" style="display: none;">
+      <!-- Video Section -->
+      <section class="section">
+        <h2 class="section-title">🎥 Video</h2>
+        <div class="video-grid" id="video-grid"></div>
+      </section>
+
+      <!-- News Section -->
+      <section class="section">
+        <h2 class="section-title">📄 Articoli</h2>
+        <div class="news-list" id="news-list"></div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // Set current date
+    const dateElement = document.getElementById('current-date');
+    const datePicker = document.getElementById('date-picker');
+    const today = new Date();
+    
+    // Format date for display
+    function formatDateForDisplay(date) {
+      return date.toLocaleDateString('it-IT', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      });
+    }
+
+    // Format date for file name (YYYY-MM-DD)
+    function formatDateForFile(date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+
+    // Initialize date picker with today's date
+    datePicker.value = formatDateForFile(today);
+    dateElement.textContent = formatDateForDisplay(today);
+
+    // Function to extract YouTube video ID from URL
+    function getYouTubeVideoId(url) {
+      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+      const match = url.match(regExp);
+      return (match && match[2].length === 11) ? match[2] : null;
+    }
+
+    // Function to get YouTube thumbnail
+    function getYouTubeThumbnail(videoId) {
+      return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+    }
+
+    // Function to render videos
+    function renderVideos(videos) {
+      const videoGrid = document.getElementById('video-grid');
+      videoGrid.innerHTML = '';
+
+      videos.forEach(video => {
+        // Use the image from JSON if available, otherwise fall back to YouTube thumbnail
+        const thumbnail = video.image || (video.url ? getYouTubeThumbnail(getYouTubeVideoId(video.url)) : '');
+
+        const videoCard = document.createElement('div');
+        videoCard.className = 'video-card';
+        videoCard.onclick = () => window.open(video.url, '_blank');
+
+        videoCard.innerHTML = `
+          <img src="${thumbnail}" alt="${video.title}" class="video-thumbnail" onerror="this.style.display='none'">
+          <div class="video-content">
+            <h3 class="video-title">${video.title}</h3>
+            <div class="video-meta">
+              <span class="video-channel">${video.channel}</span>
+            </div>
+          </div>
+        `;
+
+        videoGrid.appendChild(videoCard);
+      });
+    }
+
+    // Function to render news
+    function renderNews(articles) {
+      const newsList = document.getElementById('news-list');
+      newsList.innerHTML = '';
+
+      articles.forEach(article => {
+        const newsItem = document.createElement('div');
+        newsItem.className = 'news-item';
+
+        const imageHTML = article.image ? `<img src="${article.image}" alt="${article.title}" class="news-image" onerror="this.style.display='none'">` : '';
+
+        newsItem.innerHTML = `
+          ${imageHTML}
+          <div class="news-content">
+            <div class="news-header">
+              <h3 class="news-title">
+                <a href="${article.url}" target="_blank" rel="noopener noreferrer">
+                  ${article.title}
+                </a>
+              </h3>
+              <span class="news-source">${article.source}</span>
+            </div>
+            <p class="news-abstract">${article.abstract}</p>
+          </div>
+        `;
+
+        newsList.appendChild(newsItem);
+      });
+    }
+
+    // Fetch and display data
+    async function loadData(dateString) {
+      try {
+        // Show loading, hide error and content
+        document.getElementById('loading').style.display = 'block';
+        document.getElementById('error').style.display = 'none';
+        document.getElementById('content').style.display = 'none';
+
+        // Construct the URL based on the date
+        // Format: YYYY-MM-DD.json
+        const url = `issues/${dateString}.json`;
+        
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+          throw new Error('Errore nel caricamento dei dati');
+        }
+
+        const data = await response.json();
+
+        // Hide loading, show content
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+
+        // Map the JSON structure to match our rendering functions
+        const videos = (data.youtube || []).map(video => ({
+          title: video.title,
+          url: video.link,
+          image: video.image,
+          channel: video.source.replace('youtube::', '')
+        }));
+
+        // Render videos and news
+        renderVideos(videos);
+        renderNews(data.articles || []);
+
+      } catch (error) {
+        console.error('Error loading data:', error);
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('error').style.display = 'block';
+        document.getElementById('error').textContent = 'Errore nel caricamento dei dati per questa data. Riprova più tardi.';
+      }
+    }
+
+    // Handle date picker change
+    datePicker.addEventListener('change', (event) => {
+      const selectedDate = new Date(event.target.value + 'T00:00:00');
+      dateElement.textContent = formatDateForDisplay(selectedDate);
+      loadData(event.target.value);
+    });
+
+    // Load data on page load with today's date
+    loadData(formatDateForFile(today));
+  </script>
+</body>
+</html>

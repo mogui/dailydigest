@@ -1,0 +1,146 @@
+{
+    "youtube": [
+      {
+        "title": "Il valore umano che l'IA non può replicare [Armando Bisogno]",
+        "link": "https://www.youtube.com/watch?v=vSJJ7Qz-0Ok",
+        "image": "https://i.ytimg.com/vi/vSJJ7Qz-0Ok/maxresdefault.jpg",
+        "Summary": "Armando Bisogno riflette sul rapporto tra intelligenza artificiale e discipline umanistiche, analizzando come lo studio del passato possa illuminare le rivoluzioni tecnologiche contemporanee. L'intervista esplora il valore del lavoro intellettuale di fronte all'automazione, sottolineando l'importanza della responsabilità e dell'unicità umana. Vengono discusse tematiche come fake news, creatività e il futuro delle professioni intellettuali nell'era dei modelli linguistici di grandi dimensioni.",
+        "source": "youtube::Raffaele Gaito"
+      },
+      {
+        "title": "TROPPA PRIVACY PER APPLE: la multa di 100M da parte dell'Antitrust #1510",
+        "link": "https://www.youtube.com/watch?v=u2v_iQuqjmg",
+        "image": "https://i.ytimg.com/vi/u2v_iQuqjmg/maxresdefault.jpg",
+        "Summary": "Apple è stata multata di oltre 98 milioni di euro dall'Antitrust italiano per aver sfruttato la privacy per competere con i concorrenti. La decisione, già efficace, potrebbe portare a modifiche nella gestione dei dati degli utenti su iOS se Apple dovesse perdere l'appello. Il video esplora il dibattito su se Apple protegga veramente gli utenti o stia difendendo il proprio monopolio, nel contesto di nuove regole digitali in Europa.",
+        "source": "youtube::Ciao Internet - Matteo Flora"
+      }
+    ],
+    "articles": [
+      {
+        "title": "Atlas has its own moves",
+        "link": "https://www.reddit.com/r/singularity/comments/1q7q039/atlas_has_its_own_moves/",
+        "image": "https://picsum.photos/seed/atlas-robot/800/600",
+        "Summary": "Atlas has its own moves",
+        "source": "reddit::singularity",
+        "relevance": 8,
+        "reason": "The post references a documented event (Atlas robot's movements) and provides a link to a source (video), suggesting it shares factual information about a technological development in robotics. However, the title alone does not confirm it includes substantive details or sources beyond the link."
+      },
+      {
+        "title": "Terence Tao's Write-up of GPT-5.2 Solving Erdos Problem #728",
+        "link": "https://www.reddit.com/r/singularity/comments/1q7u78b/terence_taos_writeup_of_gpt52_solving_erdos/",
+        "image": "https://picsum.photos/seed/erdos-math/800/600",
+        "Summary": "In the last week, me and AcerFur on X used GPT-5.2 to resolve Erdos Problem #728, marking the first time an LLM has resolved an Erdos problem not previously resolved by a Human. I did a detailed write-up of the process yesterday on this sub, however I just came to find out Terence Tao has posted a much more in-depth write-up of the process, in a more Mathematics centric way. Those mathematicians among you might want to check it out as, like I stated in my previous post, I'm not a mathematician by trade, so my write-up could be slightly flawed. I'm posting this here as he also talks about how LLMs have genuinely increased in capabilities in the previous months. I think it goes towards GPT-5.2's efficacy, as it's my opinion that GPT-5.2 is the only LLM that could have accomplished this currently.",
+        "source": "reddit::singularity",
+        "relevance": 10,
+        "reason": "The post reports on a verified mathematical achievement (solving an Erdos problem) with specific details about GPT-5.2's involvement and references Terence Tao's detailed analysis. It presents factual information about a documented event in mathematical research involving AI, with credible sources cited."
+      },
+      {
+        "title": "Hyundai's Atlas humanoid wins Best Robot at CES 2026, moves toward factory deployment",
+        "link": "https://www.reddit.com/r/singularity/comments/1q81mh1/hyundais_atlas_humanoid_wins_best_robot_at_ces/",
+        "image": "https://picsum.photos/seed/atlas-ces/800/600",
+        "Summary": "Hyundai-owned Boston Dynamics \"Atlas\" humanoid has won the Best Robot award at CES 2026 for demonstrating real-world autonomy rather than scripted or pre-programmed demos. Judges highlighted Atlas ability to walk, balance, manipulate objects and adapt in real time using continuous sensor feedback and AI-driven control, even in unpredictable industrial environments. Unlike most humanoid robots focused on demonstrations or lab settings, Atlas is being built for practical deployment, including factory work and hazardous tasks where human labor is limited or risky. Hyundai has confirmed that Atlas is factory-ready, with phased deployment planned at Hyundai manufacturing plants starting in 2028, signaling a shift from experimental humanoids to commercially usable systems.",
+        "source": "reddit::singularity",
+        "relevance": 10,
+        "reason": "The post reports on an actual event (CES 2026 award), provides factual details about the robot's capabilities and deployment plans, and presents verifiable information about Hyundai's progress with Atlas. It lacks opinion, speculation, or subjective commentary, focusing solely on documented developments and official announcements."
+      },
+      {
+        "title": "Oxford Economics finds that \"firms don't appear to be replacing workers with AI on a significant scale\" suggesting that companies are using the tech as cover for routine layoffs",
+        "link": "https://www.reddit.com/r/singularity/comments/1q7rm1u/oxford_economics_finds_that_firms_dont_appear_to/",
+        "image": "https://picsum.photos/seed/ai-workers/800/600",
+        "Summary": "Oxford Economics finds that firms don't appear to be replacing workers with AI on a significant scale, suggesting companies may be using AI as a justification for routine layoffs.",
+        "source": "reddit::singularity",
+        "relevance": 10,
+        "reason": "The post reports on a study by Oxford Economics, a reputable research firm, and presents factual findings from a documented event with a verifiable source (Fortune article). It avoids opinion, speculation, or subjective commentary, focusing on a substantive analysis of corporate AI adoption trends."
+      },
+      {
+        "title": "Alphabet Overtakes Apple, Becoming Second to Nvidia in Size",
+        "link": "https://www.reddit.com/r/singularity/comments/1q7frna/alphabet_overtakes_apple_becoming_second_to/",
+        "image": "https://picsum.photos/seed/alphabet-apple/800/600",
+        "Summary": "Alphabet Overtakes Apple, Becoming Second to Nvidia in Size",
+        "source": "reddit::singularity",
+        "relevance": 10,
+        "reason": "The post reports on a factual market event (Alphabet surpassing Apple in size) with a verified source (Bloomberg), presenting verifiable company rankings without opinion or speculation."
+      },
+      {
+        "title": "Official: Zhipu becomes the world's first LLM company to go public",
+        "link": "https://www.reddit.com/r/singularity/comments/1q7j7we/official_zhipu_becomes_the_worlds_first_llm/",
+        "image": "https://picsum.photos/seed/zhipu-ipo/800/600",
+        "Summary": "Zhipu AI (Z.ai), the company behind the GLM family of large language models, has announced that it is now officially a publicly listed company on the Hong Kong Exchange (HKEX: 02513). This appears to mark the first time a major LLM-focused company has gone public, signaling a new phase for AI commercialization and capital markets. Source: Zai_org in X",
+        "source": "reddit::singularity",
+        "relevance": 10,
+        "reason": "The post reports a verified factual event (Zhipu's public listing) with clear sourcing, presenting new information about a significant development in AI commercialization without opinion or speculation."
+      },
+      {
+        "title": "Hubble's Newest Discovery Isn't a Star, It's a Window Into the Dark Universe",
+        "link": "https://www.reddit.com/r/singularity/comments/1q82zsd/hubbles_newest_discovery_isnt_a_star_its_a_window/",
+        "image": "https://picsum.photos/seed/hubble-space/800/600",
+        "Summary": "Hubble's Newest Discovery Isn't a Star, It's a Window Into the Dark Universe",
+        "source": "reddit::singularity",
+        "relevance": 10,
+        "reason": "The post reports on a verified scientific discovery by the Hubble Space Telescope, sharing factual information from a reputable source (ScitechDaily) about a significant astronomical finding. It presents new, substantive information without opinion, rants, or speculative content."
+      },
+      {
+        "title": "Using the same math employed by string theorists, network scientists discover that surface optimization governs the brain's architecture — not length minimization.",
+        "link": "https://www.reddit.com/r/singularity/comments/1q7jx9o/using_the_same_math_employed_by_string_theorists/",
+        "image": "https://picsum.photos/seed/brain-network/800/600",
+        "Summary": "Using the same math employed by string theorists, network scientists discover that surface optimization governs the brain's architecture — not length minimization.",
+        "source": "reddit::singularity",
+        "relevance": 10,
+        "reason": "The post reports on a documented scientific discovery published by Northeastern University, utilizing factual research findings and verifiable methods from network science and string theory mathematics. It presents new information about brain architecture optimization without incorporating opinion, rants, or speculative content."
+      },
+      {
+        "title": "New group of potential diabetes drugs with fewer side effects can reprogram insulin-resistant cells to be healthier",
+        "link": "https://www.reddit.com/r/singularity/comments/1q7t0pa/new_group_of_potential_diabetes_drugs_with_fewer/",
+        "image": "https://picsum.photos/seed/diabetes-drug/800/600",
+        "Summary": "A Reddit post discussing a study on new potential diabetes drugs with fewer side effects, highlighting the development of SR10171 analogs that improve insulin sensitivity without adverse effects through structural and functional analysis of PPARγ modulation.",
+        "source": "reddit::singularity",
+        "relevance": 10,
+        "reason": "The post presents factual research findings from a study published in a peer-reviewed journal (DOI: 10.1038/s41467-025-67608-5) detailing structural modifications of a diabetes drug and their biological effects. It includes verifiable scientific data, experimental methods, and documented outcomes without subjective commentary or speculation."
+      },
+      {
+        "title": "The AI Brain Is Born: Siemens And NVIDIA Forge Industrial Intelligence",
+        "link": "https://www.reddit.com/r/singularity/comments/1q7gb8l/the_ai_brain_is_born_siemens_and_nvidia_forge/",
+        "image": "https://picsum.photos/seed/siemens-nvidia/800/600",
+        "Summary": "The AI Brain Is Born: Siemens And NVIDIA Forge Industrial Intelligence",
+        "source": "reddit::singularity",
+        "relevance": 10,
+        "reason": "The post reports on a documented partnership between Siemens and NVIDIA in developing industrial AI solutions, citing a Forbes article as a source. It presents factual information about a verified corporate collaboration without opinion, analysis, or speculative content."
+      },
+      {
+        "title": "Revolutionizing Robotics: Lindon Gao's Vision at CES 2026",
+        "link": "https://www.reddit.com/r/singularity/comments/1q81u0u/revolutionizing_robotics_lindon_gaos_vision_at/",
+        "image": "https://picsum.photos/seed/robotics-ces/800/600",
+        "Summary": "This Reddit post discusses Lindon Gao's vision in robotics presented at CES 2026, linked to a YouTube video. It highlights potential advancements in the field, likely tied to a documented event with sources.",
+        "source": "reddit::singularity",
+        "relevance": 9,
+        "reason": "The post references a specific event (CES 2026) and includes a direct link to a video, suggesting it reports on factual developments in robotics. The focus on Lindon Gao's vision implies substantive technical or industry-related content."
+      },
+      {
+        "title": "Can AI See Inside Its Own Mind?",
+        "link": "https://www.reddit.com/r/singularity/comments/1q7o5lz/can_ai_see_inside_its_own_mind/",
+        "image": "https://picsum.photos/seed/ai-introspection/800/600",
+        "Summary": "Anthropic published research exploring whether AI can introspect by injecting concepts into a model's activations and testing if the AI can recognize them. The study raises questions about AI self-awareness, with results described as surprising and complex. Paper link provided.",
+        "source": "reddit::singularity",
+        "relevance": 10,
+        "reason": "The post reports on actual research published by Anthropic, presents a documented study with methodology and findings, and includes a verifiable paper link. It focuses on factual information about AI introspection experiments rather than opinions or speculation."
+      },
+      {
+        "title": "Polling vs Websocket Opinion",
+        "link": "https://www.reddit.com/r/softwarearchitecture/comments/1q7uhuh/polling_vs_websocket_opinion/",
+        "image": "https://picsum.photos/seed/websocket-polling/800/600",
+        "Summary": "The user is seeking advice on choosing between polling DynamoDB and using WebSockets for a low-traffic serverless app, focusing on technical trade-offs and implementation considerations.",
+        "source": "reddit::softwarearchitecture",
+        "relevance": 7,
+        "reason": "The post presents a factual technical scenario with specific constraints (serverless backend, low user volume) and asks for objective analysis of implementation approaches. It does not contain personal opinions or rants but rather a practical decision-making query."
+      },
+      {
+        "title": "Hierarchies work for storage, but not for discovery.",
+        "link": "https://www.reddit.com/r/softwarearchitecture/comments/1q86rlj/hierarchies_work_for_storage_but_not_for_discovery/",
+        "image": "https://picsum.photos/seed/hierarchy-storage/800/600",
+        "Summary": "The hierarchy problem showed up fast. A few weeks ago I shared how I'm building a system to capture workshop diagnostics and surface them when they're useful. Some assumptions didn't survive. This is the next thing that broke. TL;DR: Hierarchical structures work well for authoritative storage, but fail when users enter through multiple, symptom-driven paths. Conflating storage and discovery creates false negatives even when the knowledge exists. Real example: No heat from vents. Customer complaint: No heat. I search the HVAC folder for heater core issues, blend door faults, A/C compressor problems. The answer exists in the system: heater hose leak at quick-connect fittings. But it's filed under Cooling System, not HVAC. I never find it. Same fault, three diagnostic paths: No cabin heat → tech searches HVAC folder → not found; Engine overheating → tech searches Engine folder → not found; Coolant loss → tech searches Cooling folder → found. Success rate: 33%. The problem isn't search. The problem is conflating where knowledge lives with how it's found. Storage needs: One canonical location (prevents duplication). Retrieval needs: Multiple entry points (symptom, system, feature). The knowledge doesn't move. The indexes do. Why this might matter: If you're building knowledge systems for domains where one thing affects multiple systems, users don't know the root cause yet, and entry points vary, hierarchical storage probably fails the same way. Not because hierarchies are bad, but because they solve the wrong problem.",
+        "source": "reddit::softwarearchitecture",
+        "relevance": 9,
+        "reason": "The post describes a concrete technical problem with a diagnostic knowledge system, provides specific examples of how hierarchical storage leads to discoverability issues, and discusses the structural cause and proposed solution without opinion or speculation. It meets the primary criteria by presenting verifiable technical insights and documented system behavior."
+      }
+    ]
+  }
