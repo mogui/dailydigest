@@ -406,6 +406,7 @@
         const newsItem = document.createElement('div');
         newsItem.className = 'news-item';
 
+        // Only show image if the key exists in the JSON
         const imageHTML = article.image ? `<img src="${article.image}" alt="${article.title}" class="news-image" onerror="this.style.display='none'">` : '';
         const abstractId = `abstract-${index}`;
         const readMoreId = `read-more-${index}`;
@@ -489,7 +490,7 @@
         const articles = (data.articles || []).map(article => ({
           title: article.title,
           url: article.link,
-          image: article.image,
+          image: article.image || null,
           source: article.source.replace('reddit::', ''),
           abstract: article.Summary || article.abstract || ''
         }));
