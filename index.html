@@ -1,521 +1,627 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mogui daily digest</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIGEST // daily feed</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: linear-gradient(to bottom, #f8f9fa, #ffffff);
-      color: #1a1a1a;
-      line-height: 1.6;
-    }
+:root {
+  --bg:      #0a0e0a;
+  --fg:      #b4c9a8;
+  --fg-dim:  #5a7a52;
+  --fg-hi:   #d4f0c4;
+  --fg-warn: #c8b560;
+  --fg-link: #78c8a0;
+  --fg-head: #e8fce0;
+  --border:  #1e2e1a;
+  --sel:     #0f1a0d;
+  --sel-b:   #162412;
+  --scanline: rgba(0,0,0,0.18);
+  --sidebar-w: 260px;
+  --font: 'IBM Plex Mono', 'Courier New', monospace;
+}
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-    }
+html, body { height: 100%; }
 
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid #e5e7eb;
-    }
+body {
+  font-family: var(--font);
+  font-size: 13px;
+  background: var(--bg);
+  color: var(--fg);
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
 
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 0.5rem;
-    }
+/* CRT scanlines overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    var(--scanline) 2px,
+    var(--scanline) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.3;
+}
 
-    .date {
-      color: #64748b;
-      font-size: 0.875rem;
-      margin-bottom: 1rem;
-    }
+/* ── SIDEBAR ── */
+#sidebar {
+  width: var(--sidebar-w);
+  min-width: var(--sidebar-w);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  overflow: hidden;
+}
 
-    .date-picker-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
+.sb-ascii {
+  padding: 14px 14px 6px;
+  font-size: 8.5px;
+  line-height: 1.35;
+  color: var(--fg-dim);
+  white-space: pre;
+  letter-spacing: 0;
+  user-select: none;
+}
 
-    .date-picker {
-      padding: 0.5rem 1rem;
-      font-size: 0.9375rem;
-      border: 2px solid #10b981;
-      border-radius: 0.5rem;
-      background: white;
-      color: #0f172a;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: inherit;
-    }
+.sb-title {
+  padding: 8px 14px 10px;
+  font-size: 11px;
+  color: var(--fg-warn);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
 
-    .date-picker:hover {
-      border-color: #059669;
-      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
-    }
+.sb-title::before { content: '> '; color: var(--fg-dim); }
 
-    .date-picker:focus {
-      outline: none;
-      border-color: #059669;
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
-    }
+.sb-meta {
+  padding: 8px 14px;
+  font-size: 10px;
+  color: var(--fg-dim);
+  border-bottom: 1px solid var(--border);
+  line-height: 1.8;
+  white-space: pre;
+}
 
-    .date-label {
-      font-size: 0.875rem;
-      color: #64748b;
-      font-weight: 500;
-    }
+.sb-section-label {
+  padding: 10px 14px 4px;
+  font-size: 9px;
+  color: var(--fg-dim);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
 
-    .section {
-      margin-bottom: 3rem;
-    }
+.sb-search-row {
+  padding: 6px 14px 8px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #0f172a;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #10b981;
-    }
+.sb-search-row::before {
+  content: '/';
+  color: var(--fg-dim);
+  font-size: 13px;
+  flex-shrink: 0;
+}
 
-    /* Video Cards */
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
+#search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font);
+  font-size: 11px;
+  color: var(--fg-hi);
+  width: 100%;
+  caret-color: var(--fg-warn);
+}
 
-    .video-card {
-      background: white;
-      border-radius: 0.75rem;
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s, box-shadow 0.2s;
-      cursor: pointer;
-    }
+#search-input::placeholder { color: var(--fg-dim); }
 
-    .video-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
+#days-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 0 16px;
+}
 
-    .video-thumbnail {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      background: #f1f5f9;
-    }
+#days-list::-webkit-scrollbar { width: 2px; }
+#days-list::-webkit-scrollbar-thumb { background: var(--fg-dim); }
 
-    .video-content {
-      padding: 1rem;
-    }
+.day-item {
+  padding: 5px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  transition: background 0.08s;
+  border-left: 2px solid transparent;
+}
 
-    .video-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #0f172a;
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
-    }
+.day-item:hover { background: var(--sel); border-left-color: var(--fg-dim); }
 
-    .video-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.875rem;
-      color: #64748b;
-    }
+.day-item.active {
+  background: var(--sel-b);
+  border-left-color: var(--fg-warn);
+}
 
-    .video-channel {
-      font-weight: 500;
-    }
+.day-item.active .di-date   { color: var(--fg-warn); }
+.day-item.active .di-prefix { color: var(--fg-warn); }
 
-    /* News List */
-    .news-list {
-      background: white;
-      border-radius: 0.75rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
+.di-prefix { font-size: 10px; color: var(--fg-dim); flex-shrink: 0; }
+.di-date   { font-size: 11px; color: var(--fg); flex: 1; white-space: nowrap; }
+.di-count  { font-size: 9px; color: var(--fg-dim); flex-shrink: 0; }
 
-    .news-item {
-      padding: 1.5rem;
-      border-bottom: 1px solid #e5e7eb;
-      transition: background-color 0.2s;
-      display: flex;
-      gap: 1.5rem;
-    }
+.day-item.error .di-date { color: #806060; }
 
-    .news-item:last-child {
-      border-bottom: none;
-    }
+/* cursor blink */
+.day-item.active .di-prefix::after {
+  content: '_';
+  animation: cur 1s steps(1) infinite;
+}
+@keyframes cur { 0%,100%{opacity:1} 50%{opacity:0} }
 
-    .news-item:hover {
-      background-color: #f8fafc;
-    }
+/* ── MAIN ── */
+#main {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
 
-    .news-image {
-      width: 150px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 0.5rem;
-      flex-shrink: 0;
-    }
+#main::-webkit-scrollbar { width: 3px; }
+#main::-webkit-scrollbar-thumb { background: var(--fg-dim); }
 
-    .news-content {
-      flex: 1;
-      min-width: 0;
-    }
+#topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0 20px;
+  font-size: 10px;
+  color: var(--fg-dim);
+  display: flex;
+  align-items: stretch;
+  min-height: 30px;
+}
 
-    .news-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 0.75rem;
-    }
+.tb-cell {
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid var(--border);
+  gap: 6px;
+  white-space: nowrap;
+}
 
-    .news-title {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: #0f172a;
-      flex: 1;
-    }
+.tb-cell:first-child { padding-left: 0; }
+.tb-cell:last-child  { border-right: none; flex: 1; }
 
-    .news-title a {
-      color: inherit;
-      text-decoration: none;
-    }
+.tb-key { color: var(--fg-dim); }
+.tb-val { color: var(--fg); }
+.tb-val.hi { color: var(--fg-warn); }
 
-    .news-title a:hover {
-      color: #10b981;
-    }
+#content-wrap {
+  padding: 24px 28px 80px;
+  max-width: 820px;
+  width: 100%;
+}
 
-    .news-source {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      background: #d1fae5;
-      color: #065f46;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      white-space: nowrap;
-    }
+/* Mail envelope */
+.mail-envelope {
+  border: 1px solid var(--border);
+  animation: blink-in 0.12s steps(2) forwards;
+}
 
-    .news-abstract {
-      color: #475569;
-      font-size: 0.9375rem;
-      line-height: 1.6;
-      position: relative;
-    }
+@keyframes blink-in {
+  0%   { opacity: 0; }
+  60%  { opacity: 0.6; }
+  100% { opacity: 1; }
+}
 
-    .news-abstract.collapsed {
-      max-height: 90px;
-      overflow: hidden;
-    }
+.mail-header {
+  background: var(--sel);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 16px;
+  font-size: 10px;
+  color: var(--fg-dim);
+  line-height: 2;
+}
 
-    .news-abstract.collapsed.has-overflow::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 40px;
-      background: linear-gradient(to bottom, transparent, white);
-    }
+.mh-row       { display: flex; gap: 10px; }
+.mh-label     { color: var(--fg-dim); min-width: 72px; flex-shrink: 0; }
+.mh-val       { color: var(--fg); }
+.mh-val.subj  { color: var(--fg-hi); font-weight: 700; font-size: 11px; }
 
-    .read-more {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: #10b981;
-      font-size: 0.875rem;
-      font-weight: 500;
-      cursor: pointer;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+.mail-body    { padding: 20px 16px; }
+.mail-sig {
+  border-top: 1px solid var(--border);
+  padding: 10px 16px;
+  font-size: 10px;
+  color: var(--fg-dim);
+  line-height: 1.8;
+}
 
-    .read-more:hover {
-      color: #059669;
-      text-decoration: underline;
-    }
+/* ── CONTENT TYPOGRAPHY ── */
+.mail-body h1 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--fg-head);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.mail-body h1::before { content: '=== '; color: var(--fg-dim); }
+.mail-body h1::after  { content: ' ==='; color: var(--fg-dim); }
 
-    .loading {
-      text-align: center;
-      padding: 3rem;
-      color: #64748b;
-      font-size: 1.125rem;
-    }
+.mail-body h2 {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--fg-warn);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 28px 0 10px;
+}
+.mail-body h2::before { content: '-- '; color: var(--fg-dim); }
 
-    .error {
-      text-align: center;
-      padding: 3rem;
-      color: #dc2626;
-      font-size: 1.125rem;
-      background: #fee;
-      border-radius: 0.75rem;
-      margin: 2rem 0;
-    }
+.mail-body p {
+  font-size: 12px;
+  line-height: 1.85;
+  color: var(--fg);
+  margin-bottom: 12px;
+}
 
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
+.mail-body strong { color: var(--fg-hi); font-weight: 500; }
 
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
+.mail-body a {
+  color: var(--fg-link);
+  text-decoration: none;
+}
+.mail-body a:hover { text-decoration: underline; color: var(--fg-hi); }
 
-      .news-item {
-        flex-direction: column;
-      }
+/* Article cards — quoted-reply style */
+.mail-body p:has(strong > a) {
+  border-left: 2px solid var(--fg-dim);
+  padding: 7px 12px;
+  margin-bottom: 8px;
+  background: var(--sel);
+  transition: border-color 0.1s, background 0.1s;
+}
+.mail-body p:has(strong > a):hover {
+  border-left-color: var(--fg-link);
+  background: var(--sel-b);
+}
 
-      .news-image {
-        width: 100%;
-        height: 150px;
-      }
+.mail-body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 22px 0;
+}
 
-      .news-header {
-        flex-direction: column;
-      }
+/* State messages */
+#state-msg {
+  padding: 40px 28px;
+  font-size: 11px;
+  color: var(--fg-dim);
+  white-space: pre;
+  line-height: 1.9;
+}
 
-      .news-source {
-        align-self: flex-start;
-      }
-    }
-  </style>
+/* Mobile */
+#mob-btn {
+  display: none;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: var(--fg-warn);
+  color: var(--bg);
+  border: none;
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 8px 14px;
+  cursor: pointer;
+  z-index: 200;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 680px) {
+  #sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.15s steps(3);
+  }
+  #sidebar.open { transform: translateX(0); }
+  #mob-btn      { display: block; }
+  #content-wrap { padding: 16px 14px 60px; }
+  #topbar       { padding: 0 14px; }
+}
+</style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>mogui daily digest</h1>
-      <p class="date" id="current-date"></p>
-      <div class="date-picker-container">
-        <label for="date-picker" class="date-label">Seleziona data:</label>
-        <input type="date" id="date-picker" class="date-picker">
-      </div>
-    </header>
 
-    <div id="loading" class="loading">Caricamento in corso...</div>
-    <div id="error" class="error" style="display: none;"></div>
+<nav id="sidebar">
+  <div class="sb-ascii"> __| |(_)__ _ ___ ___| |_
+/ _` | | / _` |/ -_|_-<  _|
+\__,_|_|_\__, |\___/__/\__|
+          |___/            </div>
+  <div class="sb-title">daily.digest</div>
+  <div class="sb-meta" id="sb-meta">connecting...</div>
+  <div class="sb-search-row">
+    <input type="text" id="search-input" placeholder="filter dates..." autocomplete="off" spellcheck="false" />
+  </div>
+  <div class="sb-section-label">archive</div>
+  <div id="days-list"></div>
+</nav>
 
-    <div id="content" style="display: none;">
-      <!-- Video Section -->
-      <section class="section">
-        <h2 class="section-title">🎥 Video</h2>
-        <div class="video-grid" id="video-grid"></div>
-      </section>
-
-      <!-- News Section -->
-      <section class="section">
-        <h2 class="section-title">📄 Articoli</h2>
-        <div class="news-list" id="news-list"></div>
-      </section>
+<main id="main">
+  <div id="topbar">
+    <div class="tb-cell">
+      <span class="tb-key">group:</span>
+      <span class="tb-val hi">digest.daily</span>
+    </div>
+    <div class="tb-cell">
+      <span class="tb-key">date:</span>
+      <span class="tb-val" id="tb-date">—</span>
+    </div>
+    <div class="tb-cell">
+      <span class="tb-key">items:</span>
+      <span class="tb-val" id="tb-items">—</span>
+    </div>
+    <div class="tb-cell">
+      <span class="tb-key">status:</span>
+      <span class="tb-val" id="tb-status">idle</span>
     </div>
   </div>
 
-  <script>
-    // Set current date
-    const dateElement = document.getElementById('current-date');
-    const datePicker = document.getElementById('date-picker');
-    const today = new Date();
-    
-    // Format date for display
-    function formatDateForDisplay(date) {
-      return date.toLocaleDateString('it-IT', { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-      });
+  <div id="content-wrap">
+    <div id="state-msg">digest reader v1.0
+===================
+
+connecting to archive server...
+fetching message index...
+
+select a day from the sidebar
+or wait for auto-load.</div>
+  </div>
+</main>
+
+<button id="mob-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">[ MENU ]</button>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  CONFIG
+//  Adapt these values to your GitHub Pages / hosting setup
+// ═══════════════════════════════════════════════════════════════
+const CONFIG = {
+
+  // Base URL of your news directory.
+  // GitHub Pages example: 'https://youruser.github.io/yourrepo/news'
+  // Local dev: './news'
+  baseUrl: './news',
+
+  // File naming convention: {baseUrl}/{prefix}{YYYY-MM-DD}{suffix}
+  // Default produces: ./news/2026-03-12.html
+  filePrefix: '',
+  fileSuffix: '.html',
+
+  // Index file: one date per line (YYYY-MM-DD), newest first.
+  // n8n prepends a new line on every publish run.
+  indexFile: './news/index.txt',
+
+  // If index.txt is missing, probe this many past days via HEAD requests.
+  probeDays: 30,
+
+  // Mail header cosmetics
+  sender:   'n8n-digest-bot <bot@localhost>',
+  listAddr: 'digest.daily@archive',
+};
+
+// ═══════════════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════════════
+let allDates    = [];   // YYYY-MM-DD, descending
+let cache       = {};   // date → { html, count } | 'error'
+let currentDate = null;
+
+// ═══════════════════════════════════════════════════════════════
+//  HELPERS
+// ═══════════════════════════════════════════════════════════════
+const fileUrl = d => `${CONFIG.baseUrl}/${CONFIG.filePrefix}${d}${CONFIG.fileSuffix}`;
+
+function fmtLong(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString('it-IT', { weekday:'short', day:'2-digit', month:'short', year:'numeric' });
+}
+
+function countItems(html) {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  return tmp.querySelectorAll('p strong a').length || tmp.querySelectorAll('h2').length;
+}
+
+const setStatus = s => document.getElementById('tb-status').textContent = s;
+
+// ═══════════════════════════════════════════════════════════════
+//  INDEX — try index.txt, fallback HEAD-probe
+// ═══════════════════════════════════════════════════════════════
+async function loadIndex() {
+  try {
+    const r = await fetch(CONFIG.indexFile, { cache: 'no-cache' });
+    if (r.ok) {
+      const dates = (await r.text())
+        .split('\n')
+        .map(l => l.trim())
+        .filter(l => /^\d{4}-\d{2}-\d{2}$/.test(l))
+        .sort((a, b) => b.localeCompare(a));
+      if (dates.length) return dates;
     }
+  } catch(_) {}
 
-    // Format date for file name (YYYY-MM-DD)
-    function formatDateForFile(date) {
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const day = String(date.getDate()).padStart(2, '0');
-      return `${year}-${month}-${day}`;
-    }
+  // fallback probe
+  setStatus('probing...');
+  const found = [];
+  const today = new Date();
+  for (let i = 0; i < CONFIG.probeDays; i++) {
+    const d = new Date(today);
+    d.setDate(today.getDate() - i);
+    const s = d.toISOString().slice(0, 10);
+    try {
+      const r = await fetch(fileUrl(s), { method: 'HEAD', cache: 'no-cache' });
+      if (r.ok) found.push(s);
+    } catch(_) {}
+  }
+  return found.sort((a, b) => b.localeCompare(a));
+}
 
-    // Initialize date picker with today's date
-    datePicker.value = formatDateForFile(today);
-    dateElement.textContent = formatDateForDisplay(today);
+// ═══════════════════════════════════════════════════════════════
+//  FETCH SINGLE DAY
+// ═══════════════════════════════════════════════════════════════
+async function fetchDay(date) {
+  if (cache[date]) return cache[date];
+  try {
+    const r = await fetch(fileUrl(date), { cache: 'no-cache' });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const html  = await r.text();
+    const entry = { html, count: countItems(html) };
+    cache[date] = entry;
+    return entry;
+  } catch(_) {
+    cache[date] = 'error';
+    return 'error';
+  }
+}
 
-    // Function to extract YouTube video ID from URL
-    function getYouTubeVideoId(url) {
-      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-      const match = url.match(regExp);
-      return (match && match[2].length === 11) ? match[2] : null;
-    }
+// ═══════════════════════════════════════════════════════════════
+//  RENDER SIDEBAR
+// ═══════════════════════════════════════════════════════════════
+function renderSidebar(filter = '') {
+  const list = document.getElementById('days-list');
+  const q    = filter.toLowerCase();
+  const rows = allDates.filter(d =>
+    !q || d.includes(q) || fmtLong(d).toLowerCase().includes(q)
+  );
 
-    // Function to get YouTube thumbnail
-    function getYouTubeThumbnail(videoId) {
-      return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-    }
+  list.innerHTML = '';
 
-    // Function to render videos
-    function renderVideos(videos) {
-      const videoGrid = document.getElementById('video-grid');
-      videoGrid.innerHTML = '';
+  if (!rows.length) {
+    list.innerHTML = '<div style="padding:12px 14px;font-size:10px;color:var(--fg-dim);">no matches.</div>';
+    return;
+  }
 
-      videos.forEach(video => {
-        // Use the image from JSON if available, otherwise fall back to YouTube thumbnail
-        const thumbnail = video.image || (video.url ? getYouTubeThumbnail(getYouTubeVideoId(video.url)) : '');
+  rows.forEach((date, i) => {
+    const c    = cache[date];
+    const isErr = c === 'error';
+    const div  = document.createElement('div');
+    div.className = 'day-item' + (date === currentDate ? ' active' : '') + (isErr ? ' error' : '');
 
-        const videoCard = document.createElement('div');
-        videoCard.className = 'video-card';
-        videoCard.onclick = () => window.open(video.url, '_blank');
+    const cnt = (c && !isErr) ? c.count : '?';
+    div.innerHTML =
+      `<span class="di-prefix">${i === 0 && !filter ? '>' : ' '}</span>` +
+      `<span class="di-date">${date}</span>` +
+      `<span class="di-count">[${cnt}]</span>`;
 
-        videoCard.innerHTML = `
-          <img src="${thumbnail}" alt="${video.title}" class="video-thumbnail" onerror="this.style.display='none'">
-          <div class="video-content">
-            <h3 class="video-title">${video.title}</h3>
-            <div class="video-meta">
-              <span class="video-channel">${video.channel}</span>
-            </div>
-          </div>
-        `;
+    div.addEventListener('click', () => selectDay(date));
+    list.appendChild(div);
+  });
+}
 
-        videoGrid.appendChild(videoCard);
-      });
-    }
+// ═══════════════════════════════════════════════════════════════
+//  SELECT & DISPLAY
+// ═══════════════════════════════════════════════════════════════
+async function selectDay(date) {
+  currentDate = date;
+  setStatus('fetching...');
+  document.getElementById('tb-date').textContent  = fmtLong(date);
+  document.getElementById('tb-items').textContent = '...';
+  renderSidebar(document.getElementById('search-input').value);
 
-    // Function to render news
-    function renderNews(articles) {
-      const newsList = document.getElementById('news-list');
-      newsList.innerHTML = '';
+  const wrap = document.getElementById('content-wrap');
+  wrap.innerHTML = `<div id="state-msg">GET ${fileUrl(date)}\nwaiting for response...</div>`;
 
-      articles.forEach((article, index) => {
-        const newsItem = document.createElement('div');
-        newsItem.className = 'news-item';
+  const entry = await fetchDay(date);
 
-        // Only show image if the key exists in the JSON
-        const imageHTML = article.image ? `<img src="${article.image}" alt="${article.title}" class="news-image" onerror="this.style.display='none'">` : '';
-        const abstractId = `abstract-${index}`;
-        const readMoreId = `read-more-${index}`;
+  if (entry === 'error') {
+    setStatus('404');
+    document.getElementById('tb-items').textContent = 'err';
+    wrap.innerHTML =
+      `<div id="state-msg">*** 404 NOT FOUND ***\n\n  ${fileUrl(date)}\n\nVerify CONFIG.baseUrl is correct\nand the file exists in the repo.</div>`;
+    renderSidebar(document.getElementById('search-input').value);
+    return;
+  }
 
-        newsItem.innerHTML = `
-          ${imageHTML}
-          <div class="news-content">
-            <div class="news-header">
-              <h3 class="news-title">
-                <a href="${article.url}" target="_blank" rel="noopener noreferrer">
-                  ${article.title}
-                </a>
-              </h3>
-              <span class="news-source">${article.source}</span>
-            </div>
-            <p class="news-abstract collapsed" id="${abstractId}">${article.abstract}</p>
-            <a class="read-more" id="${readMoreId}" style="display: none;">Read more</a>
-          </div>
-        `;
+  setStatus('ok');
+  document.getElementById('tb-items').textContent = entry.count;
+  renderSidebar(document.getElementById('search-input').value);
 
-        newsList.appendChild(newsItem);
+  wrap.innerHTML = '';
+  const env = document.createElement('div');
+  env.className = 'mail-envelope';
+  env.innerHTML = `
+    <div class="mail-header">
+      <div class="mh-row"><span class="mh-label">From:</span>    <span class="mh-val">${CONFIG.sender}</span></div>
+      <div class="mh-row"><span class="mh-label">To:</span>      <span class="mh-val">${CONFIG.listAddr}</span></div>
+      <div class="mh-row"><span class="mh-label">Date:</span>    <span class="mh-val">${fmtLong(date)}</span></div>
+      <div class="mh-row"><span class="mh-label">Subject:</span> <span class="mh-val subj">[digest] ${date} — daily news roundup</span></div>
+      <div class="mh-row"><span class="mh-label">X-Items:</span> <span class="mh-val">${entry.count}</span></div>
+      <div class="mh-row"><span class="mh-label">X-Source:</span><span class="mh-val">${fileUrl(date)}</span></div>
+    </div>
+    <div class="mail-body">${entry.html}</div>
+    <div class="mail-sig">-- \ngenerated by n8n-digest-bot\narchive: ${CONFIG.baseUrl}/</div>`;
 
-        // Check if abstract exceeds the height and show "Read more" if needed
-        const abstractElement = document.getElementById(abstractId);
-        const readMoreElement = document.getElementById(readMoreId);
-        
-        // Check if content is overflowing
-        if (abstractElement.scrollHeight > 90) {
-          abstractElement.classList.add('has-overflow');
-          readMoreElement.style.display = 'inline-block';
-          
-          readMoreElement.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (abstractElement.classList.contains('collapsed')) {
-              abstractElement.classList.remove('collapsed');
-              abstractElement.classList.remove('has-overflow');
-              readMoreElement.textContent = 'Read less';
-            } else {
-              abstractElement.classList.add('collapsed');
-              abstractElement.classList.add('has-overflow');
-              readMoreElement.textContent = 'Read more';
-            }
-          });
-        }
-      });
-    }
+  wrap.appendChild(env);
+  document.getElementById('main').scrollTop = 0;
+  document.getElementById('sidebar').classList.remove('open');
+}
 
-    // Fetch and display data
-    async function loadData(dateString) {
-      try {
-        // Show loading, hide error and content
-        document.getElementById('loading').style.display = 'block';
-        document.getElementById('error').style.display = 'none';
-        document.getElementById('content').style.display = 'none';
+// ═══════════════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════════════
+async function init() {
+  setStatus('loading index...');
 
-        // Construct the URL based on the date
-        // Format: YYYY-MM-DD.json
-        const url = `issues/${dateString}.json`;
-        
-        const response = await fetch(url);
-        
-        if (!response.ok) {
-          throw new Error('Errore nel caricamento dei dati');
-        }
+  allDates = await loadIndex();
 
-        const data = await response.json();
+  const meta = document.getElementById('sb-meta');
 
-        // Hide loading, show content
-        document.getElementById('loading').style.display = 'none';
-        document.getElementById('content').style.display = 'block';
+  if (!allDates.length) {
+    meta.textContent = 'no issues found.\ncheck CONFIG.baseUrl';
+    setStatus('empty');
+    document.getElementById('content-wrap').innerHTML =
+      `<div id="state-msg">*** NO ARCHIVE FOUND ***\n\nEdit CONFIG.baseUrl in the script\nto point to your news/ directory.\n\nExpected naming:\n  ${CONFIG.baseUrl}/YYYY-MM-DD.html\n\nExpected index:\n  ${CONFIG.indexFile}</div>`;
+    return;
+  }
 
-        // Map the JSON structure to match our rendering functions
-        const videos = (data.youtube || []).map(video => ({
-          title: video.title,
-          url: video.link,
-          image: video.image,
-          channel: video.source.replace('youtube::', '')
-        }));
+  meta.textContent =
+    `issues:  ${allDates.length}\n` +
+    `oldest:  ${allDates[allDates.length - 1]}\n` +
+    `latest:  ${allDates[0]}`;
 
-        // Map articles to match the expected structure
-        const articles = (data.articles || []).map(article => ({
-          title: article.title,
-          url: article.link,
-          image: article.image || null,
-          source: article.source.replace('reddit:', ''),
-          abstract: article.Summary || article.summary || article.abstract || ''
-        }));
+  renderSidebar();
+  setStatus('ready');
+  selectDay(allDates[0]);
+}
 
-        // Render videos and news
-        renderVideos(videos);
-        renderNews(articles);
+document.getElementById('search-input').addEventListener('input', e => {
+  renderSidebar(e.target.value);
+});
 
-      } catch (error) {
-        console.error('Error loading data:', error);
-        document.getElementById('loading').style.display = 'none';
-        document.getElementById('error').style.display = 'block';
-        document.getElementById('error').textContent = 'Errore nel caricamento dei dati per questa data. Riprova più tardi.';
-      }
-    }
-
-    // Handle date picker change
-    datePicker.addEventListener('change', (event) => {
-      const selectedDate = new Date(event.target.value + 'T00:00:00');
-      dateElement.textContent = formatDateForDisplay(selectedDate);
-      loadData(event.target.value);
-    });
-
-    // Load data on page load with today's date
-    loadData(formatDateForFile(today));
-  </script>
+init();
+</script>
 </body>
 </html>
